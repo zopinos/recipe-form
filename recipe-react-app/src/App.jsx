@@ -1,11 +1,10 @@
 //import { useState } from 'react'
+import IngredientsList from "./components/IngredientsList"
 
 function App() {
   return (
     <>
-      <div>
-        <p>Hello world!</p>
-      </div>
+      <IngredientsList />
     </>
   )
 }
