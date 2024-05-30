@@ -3,24 +3,35 @@ import Ingredient from "./Ingredient"
 
 const initialIngredients = [
     {
+        id: 0,
         name: "name",
         amount: "amount",
-        unit: "__"
+        unit: "_"
     }
 ]
 
 const IngredientsList = () => {
     const [ingredients, setIngredients] = useState(initialIngredients)
+    const [count, setCount] = useState(1)
 
     const addIngredient = () => {
         const newIngredient = {
+            id: count,
             name: "null",
             amount: "null",
-            unit: "__"
+            unit: "_"
         }
+
         const updatedIngredients = ingredients.concat(newIngredient)
         
         setIngredients(updatedIngredients)
+        setCount(count + 1)
+    }
+
+    const removeIngredient = (id) => {
+        setIngredients(
+            ingredients.filter(ingredient => id !== ingredient.id)
+        )
     }
 
     return (
@@ -36,10 +47,9 @@ const IngredientsList = () => {
                 <tbody>
                     {ingredients.map(ing =>
                     <Ingredient
-                        key={ing.name}
-                        name={ing.name}
-                        amount={ing.amount}
-                        unit={ing.unit}
+                        key={ing.id}
+                        ingredient={ing}
+                        remove={removeIngredient}
                     />
                     )}
                 </tbody>

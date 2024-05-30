@@ -15,6 +15,33 @@ p {
     margin: 0.5em 0;
 }
 
+input[type="number"],
+input[type="text"],
+textarea,
+select {
+    font-family: "Source Serif 4", serif;
+    background-color: #FFF2C5;
+}
+
+input[type="number"] {
+    width: 5em;
+}
+
+input[type="text"] {
+    width: 10em;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    display: block;
+}
+
+.textarea-container {
+    max-width: 30em;
+    min-width: 20em;
+}
+
 .container {
     display: flex;
     flex-direction: column;

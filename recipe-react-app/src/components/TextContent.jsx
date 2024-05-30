@@ -1,16 +1,20 @@
-import React from 'react';
-
-const convertNewlinesToBreaks = (text) => {
-  return text.split('\n').map((line, index) => (
-    <React.Fragment key={index}>
-      {line}
-      <br />
-    </React.Fragment>
-  ));
-};
-
 const TextContent = ({ textContent }) => {
-  return <p>{convertNewlinesToBreaks(textContent)}</p>;
-};
+  return (
+    <div className="textarea-container">
+    <textarea
+      name="text"
+      defaultValue={textContent}
 
-export default TextContent;
+      rows={20}
+
+      autoComplete="off"
+      autoCapitalize="sentences"
+      autoCorrect="off"
+      maxLength={99999}
+      spellCheck="false"
+    ></textarea>
+    </div>
+  )
+}
+
+export default TextContent

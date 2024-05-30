@@ -1,17 +1,21 @@
-const Ingredient = ({ amount, unit, name }) => {
+const Ingredient = ({ ingredient, remove }) => {
     return (
         <tr>
-            <td contentEditable="true">{amount}</td>
             <td>
-                <select name="test" defaultValue={unit}>
-                    <option value="__">__</option>
+                <input type="number" size={4} defaultValue={ingredient.amount}/>
+            </td>
+            <td>
+                <select name="test" defaultValue={ingredient.unit}>
+                    <option value="_">_</option>
                     <option value="dl">dl</option>
                     <option value="oz">oz</option>
                 </select>
             </td>
-            <td contentEditable="true">{name}</td>
             <td>
-                <button className="deleteRow">Delete</button>
+                <input type="text" defaultValue={ingredient.name} />
+            </td>
+            <td>
+                <button className="deleteRow" onClick={() => remove(ingredient.id)}>Delete</button>
             </td>
         </tr>
     )

@@ -2,12 +2,14 @@
 import IngredientsList from "./components/IngredientsList"
 import TextContent from "./components/TextContent"
 
-const testText = '1. Sekoita uunivuoassa peruna- \n \
-sipulisekoitus ja mausteet. Sekoita \n \
-joukkoon kinkku. Kaada päälle ruokakerma. \n \
-2. Kypsennä uunin ala- / keskiosassa \n \
-225 asteessa n. 1 tunti tai \n \
-kunnes perunat ... \n'
+const testText =
+`1.  Sekoita uunivuoassa peruna
+    sipulisekoitus ja mausteet. Sekoita
+    joukkoon kinkku. Kaada päälle ruokakerma. \n
+2.  Kypsennä uunin ala- / keskiosassa
+    225 asteessa n. 1 tunti tai
+    kunnes perunat ...
+`
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <h1>Recipe Form</h1>
       <IngredientsList />
       <TextContent textContent={testText}/>
+      <button>Add recipe item</button>
     </div>
   )
 }
