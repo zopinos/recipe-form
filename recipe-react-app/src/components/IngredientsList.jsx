@@ -35,8 +35,8 @@ const IngredientsList = () => {
     }
 
     return (
-        <div>
-            <table id="editableTable">
+        <div className='ingredients-list'>
+            <table id="editable-table">
                 <thead>
                     <tr>
                         <th>amount</th>
@@ -54,7 +54,11 @@ const IngredientsList = () => {
                     )}
                 </tbody>
             </table>
-            <button onClick={() => addIngredient()}>Add</button>
+            <button className='button button-add-ingredient' type='button' onClick={() => addIngredient()}>
+                <span className="material-symbols-outlined">
+                    add_circle
+                </span>
+            </button>
         </div>
     )
 }

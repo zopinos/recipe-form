@@ -15,7 +15,11 @@ const Ingredient = ({ ingredient, remove }) => {
                 <input type="text" defaultValue={ingredient.name} />
             </td>
             <td>
-                <button className="deleteRow" onClick={() => remove(ingredient.id)}>Delete</button>
+                <button className="button button-delete" type="button" onClick={() => remove(ingredient.id)}>
+                    <span className="material-symbols-outlined">
+                        delete
+                    </span>
+                </button>
             </td>
         </tr>
     )

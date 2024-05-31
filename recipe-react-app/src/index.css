@@ -1,50 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #FFF2C5;
     font-family: "Source Serif 4", serif;
     font-weight: 400;
     font-style: normal;
-    height: 100vh;
-    margin: 0;
     text-align: left;
+    line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-p {
-    margin: 0.5em 0;
+.container {
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    /* debug border */
+    /* border: 1px solid #ff0000; */
 }
 
-input[type="number"],
-input[type="text"],
+h1 {
+    line-height: 1.2;
+}
+
+input,
 textarea,
 select {
     font-family: "Source Serif 4", serif;
     background-color: #FFF2C5;
+
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    border-color: #ffffff00;
 }
 
-input[type="number"] {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
     width: 5em;
+    text-align: right;
+    padding-right: 10px;
+
+    appearance: textfield;
 }
 
-input[type="text"] {
+input[type=text] {
     width: 10em;
+    padding-left: 10px;
 }
 
-textarea {
-    resize: none;
+.ingredients-list {
+    margin-top: 30px;
+}
+
+.auto-resize-textarea {
     width: 100%;
-    display: block;
+    margin-top: 30px;
+    resize: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    border: none;
 }
 
-.textarea-container {
-    max-width: 30em;
-    min-width: 20em;
-}
+.button {
+    --button-color: #706c5d;
+    --button-hover: #31302c;
+    --button-size: 20;
 
-.container {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
     align-items: center;
-    margin-top: 20px;
+    background: none;
+    color: var(--button-color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' var(--button-size)
+}
+
+.button:hover,
+.button:active {
+    color: var(--button-hover);
+}
+
+.button-add-item {
+    --button-size: 48;
+}
+
+.button-add-ingredient {
+    --button-size: 10;
+}
+
+.button-delete {
+    --button-size: 20;
+}
+
+@media (min-width: 500px) {
+    .container {
+        max-width: 500px;
+    }
 }
