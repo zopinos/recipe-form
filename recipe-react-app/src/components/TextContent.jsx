@@ -1,35 +1,10 @@
-import AutoResizeTextarea from "./AutoResizeTextarea"
+import { AutoResizeTextarea, EditableHeader2 } from "./AutoResizeTextarea"
 
-/*
-  <textarea
-      name="text"
-      defaultValue={textContent}
-
-      rows={20}
-
-      autoComplete="off"
-      autoCapitalize="sentences"
-      autoCorrect="off"
-      maxLength={9999}
-      spellCheck="false"
-  ></textarea>
-*/
-
-const TextContent = ({ textContent }) => {
+const TextContent = () => {
   return (
-    <div className="textarea-container">
-    <textarea
-      name="text"
-      defaultValue={textContent}
-
-      rows={20}
-
-      autoComplete="off"
-      autoCapitalize="sentences"
-      autoCorrect="off"
-      maxLength={9999}
-      spellCheck="false"
-    ></textarea>
+    <div className="text-content">
+      <EditableHeader2 placeholder={"Content Title"} />
+      <AutoResizeTextarea placeholder={"Recipe text"} />
     </div>
   )
 }

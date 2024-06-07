@@ -38,26 +38,16 @@ select {
     border: none;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    width: 5em;
-    text-align: right;
-    padding-right: 10px;
-
-    appearance: textfield;
-}
-
 input[type=text] {
     width: 18em;
     padding-left: 10px;
 }
 
 .ingredients-list {
+    margin-top: 30px;
+}
+
+.text-content {
     margin-top: 30px;
 }
 

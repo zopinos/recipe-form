@@ -1,23 +1,13 @@
-//import { useState } from 'react'
-import { AutoResizeTextarea, EditableTitle } from "./components/AutoResizeTextarea"
+import { EditableHeader1 } from "./components/AutoResizeTextarea"
 import IngredientsList from "./components/IngredientsList"
-//import TextContent from "./components/TextContent"
-/* 
-const testText =
-`1.  Sekoita uunivuoassa peruna
-    sipulisekoitus ja mausteet. Sekoita
-    joukkoon kinkku. Kaada päälle ruokakerma. \n
-2.  Kypsennä uunin ala- / keskiosassa
-    225 asteessa n. 1 tunti tai
-    kunnes perunat ...
-`
- */
+import TextContent from "./components/TextContent"
+
 function App() {
   return (
     <div className="container">
-      <EditableTitle />
+      <EditableHeader1 placeholder={'Recipe Title'} />
       <IngredientsList />
-      <AutoResizeTextarea />
+      <TextContent />
       <button className="button button-add-item" type="button">
         <span className="material-symbols-outlined">
           add_circle
