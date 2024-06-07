@@ -37,13 +37,13 @@ const IngredientsList = () => {
     return (
         <div className='ingredients-list'>
             <table id="editable-table">
-                <thead>
+                {/* <thead>
                     <tr>
                         <th>amount</th>
                         <th>unit</th>
                         <th>ingredient</th>
                     </tr>
-                </thead>
+                </thead> */}
                 <tbody>
                     {ingredients.map(ing =>
                     <Ingredient

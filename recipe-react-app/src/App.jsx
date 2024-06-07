@@ -1,5 +1,5 @@
 //import { useState } from 'react'
-import AutoResizeTextarea from "./components/AutoResizeTextarea"
+import { AutoResizeTextarea, EditableTitle } from "./components/AutoResizeTextarea"
 import IngredientsList from "./components/IngredientsList"
 //import TextContent from "./components/TextContent"
 /* 
@@ -15,7 +15,7 @@ const testText =
 function App() {
   return (
     <div className="container">
-      <h1>Recipe Form</h1>
+      <EditableTitle />
       <IngredientsList />
       <AutoResizeTextarea />
       <button className="button button-add-item" type="button">

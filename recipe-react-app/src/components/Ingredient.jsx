@@ -2,13 +2,15 @@ const Ingredient = ({ ingredient, remove }) => {
     return (
         <tr>
             <td>
-                <input type="number" size={4} defaultValue={ingredient.amount}/>
+                <input type="number" defaultValue={ingredient.amount}/>
             </td>
             <td>
                 <select name="test" defaultValue={ingredient.unit}>
                     <option value="_">_</option>
                     <option value="dl">dl</option>
+                    <option value="tl">tl</option>
                     <option value="oz">oz</option>
+                    <option value="g">g</option>
                 </select>
             </td>
             <td>

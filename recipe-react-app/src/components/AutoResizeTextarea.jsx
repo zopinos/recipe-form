@@ -1,6 +1,18 @@
+import styled from 'styled-components'
 import { useState, useRef, useEffect } from 'react'
 
-const AutoResizeTextarea = () => {
+const Textarea = styled.textarea`
+  width: 100%;
+  margin-top: 30px;
+  resize: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+`
+
+const AutoResizeTextarea = ({ className }) => {
   const [text, setText] = useState('')
   const textareaRef = useRef(null)
 
@@ -19,11 +31,11 @@ const AutoResizeTextarea = () => {
   }
 
   return (
-    <textarea
+    <Textarea
       ref={textareaRef}
       value={text}
       onChange={handleChange}
-      className="auto-resize-textarea"
+      className={className}
       rows={1}
 
       autoComplete="off"
@@ -35,4 +47,9 @@ const AutoResizeTextarea = () => {
   )
 }
 
-export default AutoResizeTextarea
+const EditableTitle = styled(AutoResizeTextarea)`
+  font-size: 36px;
+  font-weight: 700;
+`
+
+export {AutoResizeTextarea, EditableTitle}

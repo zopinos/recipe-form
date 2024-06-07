@@ -33,11 +33,9 @@ input,
 textarea,
 select {
     font-family: "Source Serif 4", serif;
-    background-color: #FFF2C5;
-
     background-color: rgba(0, 0, 0, 0.02);
     border-radius: 10px;
-    border-color: #ffffff00;
+    border: none;
 }
 
 input::-webkit-outer-spin-button,
@@ -55,7 +53,7 @@ input[type=number] {
 }
 
 input[type=text] {
-    width: 10em;
+    width: 18em;
     padding-left: 10px;
 }
 
@@ -63,7 +61,7 @@ input[type=text] {
     margin-top: 30px;
 }
 
-.auto-resize-textarea {
+/* .auto-resize-textarea {
     width: 100%;
     margin-top: 30px;
     resize: none;
@@ -75,7 +73,7 @@ input[type=text] {
     background-color: rgba(0, 0, 0, 0.02);
     border-radius: 10px;
     border: none;
-}
+} */
 
 .button {
     --button-color: #706c5d;
