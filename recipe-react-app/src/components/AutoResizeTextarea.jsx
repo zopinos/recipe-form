@@ -73,6 +73,7 @@ const IngredientAmountText = styled(IngredientText)`
   margin-right: 8px;
   width: 100%;
   text-align: right;
+  text-transform: lowercase;
 `
 
 export {AutoResizeTextarea, EditableHeader1, EditableHeader2, IngredientAmountText, IngredientText}
