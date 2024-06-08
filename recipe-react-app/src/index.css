@@ -68,7 +68,6 @@ input[type=text] {
 .button {
     --button-color: #706c5d;
     --button-hover: #31302c;
-    --button-size: 20;
 
     display: inline-flex;
     align-items: center;
@@ -77,29 +76,11 @@ input[type=text] {
     outline: none;
     border: none;
     cursor: pointer;
-
-    font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' var(--button-size)
 }
 
 .button:hover,
 .button:active {
     color: var(--button-hover);
-}
-
-.button-add-item {
-    --button-size: 48;
-}
-
-.button-add-ingredient {
-    --button-size: 10;
-}
-
-.button-delete {
-    --button-size: 20;
 }
 
 @media (min-width: 500px) {
