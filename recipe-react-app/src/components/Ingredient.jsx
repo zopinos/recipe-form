@@ -8,16 +8,16 @@ const IngredientRow = styled.div`
     margin-bottom: 10px;
 `
 
-const Ingredient = ({ ingredient, remove }) => {
+const Ingredient = ({ ingredient, handleDelete }) => {
     return (
         <IngredientRow>
             <IngredientAmountText defaultValue={ingredient.amount} placeholder={"amount"} />
             <IngredientText defaultValue={ingredient.name} placeholder={"name"} />
-            <button className="button button-delete" type="button" onClick={() => remove(ingredient.id)}>
-                    <span className="material-symbols-outlined">
-                        delete
-                    </span>
-                </button>
+            <button className="button button-delete" type="button" onClick={handleDelete}>
+                <span className="material-symbols-outlined">
+                    delete
+                </span>
+            </button>
         </IngredientRow>
     )
 }

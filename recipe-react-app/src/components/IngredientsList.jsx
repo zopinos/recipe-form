@@ -1,49 +1,36 @@
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Ingredient from "./Ingredient"
 import { EditableHeader2 } from "./AutoResizeTextarea"
-
-const initialIngredients = [
-    {
-        id: 0,
-        name: "muna",
-        amount: "1",
-    }
-]
+import { createIngredient, removeIngredient } from '../reducers/ingredientReducer'
 
 const IngredientsList = () => {
-    const [ingredients, setIngredients] = useState(initialIngredients)
     const [count, setCount] = useState(1)
-
-    const addIngredient = () => {
-        const newIngredient = {
-            id: count
-        }
-
-        const updatedIngredients = ingredients.concat(newIngredient)
-        
-        setIngredients(updatedIngredients)
-        setCount(count + 1)
-    }
-
-    const removeIngredient = (id) => {
-        setIngredients(
-            ingredients.filter(ingredient => id !== ingredient.id)
-        )
-    }
+    const dispatch = useDispatch()
+    const ingredients = useSelector(({ ingredients }) => {
+        return ingredients
+    })
 
     return (
         <div className='ingredients-list'>
             <EditableHeader2 placeholder={"Ingredients Title"} />
             <div className='ingredient-table'>
-                {ingredients.map(ing =>
+                {ingredients.map(ingredient =>
                     <Ingredient
-                        key={ing.id}
-                        ingredient={ing}
-                        remove={removeIngredient}
+                        key={ingredient.id}
+                        ingredient={ingredient}
+                        handleDelete={() => dispatch(removeIngredient(ingredient.id))}
                     />
                 )}
             </div>
-            <button className='button button-add-ingredient' type='button' onClick={() => addIngredient()}>
+            <button
+                className='button button-add-ingredient'
+                type='button'
+                onClick={() => {
+                    dispatch(createIngredient(count))
+                    setCount(count + 1)
+                }}
+            >
                 <span className="material-symbols-outlined">
                     add_circle
                 </span>
