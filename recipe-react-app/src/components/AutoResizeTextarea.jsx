@@ -11,7 +11,7 @@ const Textarea = styled.textarea`
   line-height: 1.5;
 `
 
-const AutoResizeTextarea = ({ className, placeholder, defaultValue }) => {
+const AutoResizeTextarea = ({ className, placeholder, defaultValue, onChange }) => {
   const [text, setText] = useState(defaultValue)
   const textareaRef = useRef(null)
 
@@ -26,6 +26,7 @@ const AutoResizeTextarea = ({ className, placeholder, defaultValue }) => {
   }
 
   const handleChange = (event) => {
+    onChange(event)
     setText(event.target.value)
   }
 

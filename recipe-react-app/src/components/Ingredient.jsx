@@ -8,11 +8,19 @@ const IngredientRow = styled.div`
     margin-bottom: 10px;
 `
 
-const Ingredient = ({ ingredient, handleDelete }) => {
+const Ingredient = ({ ingredient, handleDelete, handleUpdate }) => {
+    const handleNameChange = (event) => {
+        handleUpdate({...ingredient, name: event.target.value})
+    }
+
+    const handleAmountChange = (event) => {
+        handleUpdate({...ingredient, amount: event.target.value})
+    }
+
     return (
         <IngredientRow>
-            <IngredientAmountText defaultValue={ingredient.amount} placeholder={"amount"} />
-            <IngredientText defaultValue={ingredient.name} placeholder={"name"} />
+            <IngredientAmountText defaultValue={ingredient.amount} placeholder={"amount"} onChange={handleAmountChange} />
+            <IngredientText defaultValue={ingredient.name} placeholder={"name"} onChange={handleNameChange} />
             <button className="button button-delete" type="button" onClick={handleDelete}>
                 <span className="material-symbols-outlined">
                     delete

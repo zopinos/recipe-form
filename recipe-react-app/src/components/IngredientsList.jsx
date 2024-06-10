@@ -2,14 +2,12 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Ingredient from "./Ingredient"
 import { EditableHeader2 } from "./AutoResizeTextarea"
-import { createIngredient, removeIngredient } from '../reducers/ingredientReducer'
+import { createIngredient, removeIngredient, updateIngredient } from '../reducers/ingredientReducer'
 
 const IngredientsList = () => {
     const [count, setCount] = useState(1)
     const dispatch = useDispatch()
-    const ingredients = useSelector(({ ingredients }) => {
-        return ingredients
-    })
+    const ingredients = useSelector(({ ingredients }) => ingredients)
 
     return (
         <div className='ingredients-list'>
@@ -20,6 +18,7 @@ const IngredientsList = () => {
                         key={ingredient.id}
                         ingredient={ingredient}
                         handleDelete={() => dispatch(removeIngredient(ingredient.id))}
+                        handleUpdate={(payload) => dispatch(updateIngredient(payload))}
                     />
                 )}
             </div>

@@ -21,9 +21,26 @@ const ingredientSlice = createSlice({
         removeIngredient(state, action) {
             const id = action.payload
             return state.filter(ingredient => id !== ingredient.id)
+        },
+        updateIngredient(state, action) {
+            const id = action.payload.id
+            const name = action.payload.name
+            const amount = action.payload.amount
+            
+            const ingredientToChange = state.find(ingredient => id === ingredient.id)
+
+            const changedIngredient = {
+                ...ingredientToChange,
+                name,
+                amount
+            }
+
+            return state.map(ingredient =>
+                ingredient.id !== id ? ingredient : changedIngredient
+            )
         }
     }
 })
 
-export const { createIngredient, removeIngredient } = ingredientSlice.actions
+export const { createIngredient, removeIngredient, updateIngredient } = ingredientSlice.actions
 export default ingredientSlice.reducer
