@@ -5,9 +5,11 @@ import './index.css'
 import App from './App'
 
 import ingredientReducer from './reducers/ingredientReducer'
+import titleReducer from './reducers/titleReducer'
 
 const store = configureStore({
     reducer: {
+        title: titleReducer,
         ingredients: ingredientReducer,
         /* recipeItems: ,
         theme: , */
