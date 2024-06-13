@@ -1,54 +1,88 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #FFF2C5;
-    font-family: "Source Serif 4", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: left;
-    line-height: 1.6;
+  background-color: #FFF2C5;
+  font-family: "Source Serif 4", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  line-height: 1.6;
 }
 
 .container {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 20px;
-    margin-top: 50px;
-    margin-bottom: 20px;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 
-    /* debug border */
-    /* border: 1px solid #ff0000; */
+  /* Shadow border for the form */
+  /* border-radius: 20px; */
+  /* box-shadow: 0px 0px 10px 10px #00000011; */
+  /* padding: 40px; */
+
+  /* Debug border */
+  /* border: 1px solid #ff0000; */
 }
 
 h1 {
-    line-height: 1.2;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 1em;
 }
 
 input,
 textarea,
 select {
-    font-family: "Source Serif 4", serif;
-    background-color: rgba(0, 0, 0, 0.02);
-    border-radius: 10px;
-    border: none;
+  font-family: "Source Serif 4", serif;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+  border: none;
 }
 
 input[type=text] {
-    width: 18em;
-    padding-left: 10px;
+  width: 18em;
+  padding-left: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  width: 4em;
+  height: 2em;
+  text-align: center;
+
+  appearance: textfield;
+}
+
+.portions-selector {
+  display: flex;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.portions-selector>* {
+  margin-right: 0.5em;
 }
 
 .ingredients-list {
-    margin-top: 30px;
+  margin-top: 20px;
 }
 
 .text-content {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 /* .auto-resize-textarea {
@@ -66,25 +100,29 @@ input[type=text] {
 } */
 
 .button {
-    --button-color: #706c5d;
-    --button-hover: #31302c;
+  --button-color: #706c5d;
+  --button-hover: #31302c;
 
-    display: inline-flex;
-    align-items: center;
-    background: none;
-    color: var(--button-color);
-    outline: none;
-    border: none;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  color: var(--button-color);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-size: 28px;
 }
 
 .button:hover,
 .button:active {
-    color: var(--button-hover);
+  color: var(--button-hover);
 }
 
 @media (min-width: 500px) {
-    .container {
-        max-width: 500px;
-    }
+  .container {
+    max-width: 500px;
+  }
 }

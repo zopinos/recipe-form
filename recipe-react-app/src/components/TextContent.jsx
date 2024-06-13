@@ -1,5 +1,5 @@
-import AutoResizeTextarea from "./AutoResizeTextarea"
-import { EditableHeader2 } from "./AutoResizeTextarea"
+import AutoResizeTextarea from "./AutoResizeTextarea";
+import { EditableHeader2 } from "./AutoResizeTextarea";
 
 const TextContent = () => {
   return (
@@ -7,7 +7,7 @@ const TextContent = () => {
       <EditableHeader2 placeholder={"Content Title"} />
       <AutoResizeTextarea placeholder={"Recipe text"} />
     </div>
-  )
-}
+  );
+};
 
-export default TextContent
+export default TextContent;
