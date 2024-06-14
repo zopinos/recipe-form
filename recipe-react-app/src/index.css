@@ -77,6 +77,10 @@ input[type=number] {
   margin-right: 0.5em;
 }
 
+#portions-text {
+  margin-left: 0.8em;
+}
+
 .ingredients-list {
   margin-top: 20px;
 }

@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [
   {
     id: 0,
-    name: "muna",
-    amount: "1",
+    name: 'muna',
+    amount: '1',
   }
 ];
 

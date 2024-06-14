@@ -11,7 +11,7 @@ import {
 import { allUnits } from '../util/constants.js';
 
 test('tests work', () => {
-  console.log("hello  world!".split(/\s+/));
+  console.log('hello  world!'.split(/\s+/));
   console.log(allUnits);
 
   expect(true).toBe(true);

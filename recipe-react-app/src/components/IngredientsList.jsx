@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Ingredient from "./Ingredient";
-import { EditableHeader2 } from "./AutoResizeTextarea";
+import Ingredient from './Ingredient';
+import { EditableHeader2 } from './AutoResizeTextarea';
 import { createIngredient, removeIngredient, updateIngredient } from '../reducers/ingredientReducer';
 
 const IngredientsList = () => {
@@ -11,7 +11,7 @@ const IngredientsList = () => {
 
   return (
     <div className='ingredients-list'>
-      <EditableHeader2 placeholder={"Ingredients Title"} />
+      <EditableHeader2 placeholder={'Ingredients Title'} />
       <div className='ingredient-table'>
         {ingredients.map(ingredient =>
           <Ingredient

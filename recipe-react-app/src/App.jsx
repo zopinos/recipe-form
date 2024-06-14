@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { EditableHeader1 } from "./components/AutoResizeTextarea";
-import IngredientsList from "./components/IngredientsList";
-import TextContent from "./components/TextContent";
+import { EditableHeader1 } from './components/AutoResizeTextarea';
+import IngredientsList from './components/IngredientsList';
+import TextContent from './components/TextContent';
 import { changeTitle } from './reducers/titleReducer';
 import PortionsSelector from './components/PortionsSelector';
 

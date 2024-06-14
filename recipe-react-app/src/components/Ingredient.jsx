@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IngredientAmountText, IngredientText } from "./AutoResizeTextarea";
+import { IngredientAmountText, IngredientText } from './AutoResizeTextarea';
 
 const IngredientRow = styled.div`
   display: grid;
@@ -19,8 +19,8 @@ const Ingredient = ({ ingredient, handleDelete, handleUpdate }) => {
 
   return (
     <IngredientRow>
-      <IngredientAmountText defaultValue={ingredient.amount} placeholder={"amount"} onChange={handleAmountChange} />
-      <IngredientText defaultValue={ingredient.name} placeholder={"name"} onChange={handleNameChange} />
+      <IngredientAmountText defaultValue={ingredient.amount} placeholder={'amount'} onChange={handleAmountChange} />
+      <IngredientText defaultValue={ingredient.name} placeholder={'name'} onChange={handleNameChange} />
       <button className="button button-delete" type="button" onClick={handleDelete}>
         <span className="material-symbols-outlined">
                     delete
