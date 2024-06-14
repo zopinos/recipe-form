@@ -16,7 +16,7 @@ const Ingredient = ({ ingredient, handleDelete, handleUpdate }) => {
   const handleAmountChange = (event) => {
     handleUpdate({...ingredient, amount: event.target.value});
   };
-
+  // TODO: Find out how to update the amount text
   return (
     <IngredientRow>
       <IngredientAmountText defaultValue={ingredient.amount} placeholder={'amount'} onChange={handleAmountChange} />

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { changePortionAmount } from '../reducers/ingredientReducer';
 
 const MAX = 999;
 const MIN = 1;
@@ -8,11 +9,16 @@ const PortionsSelector = () => {
   const [portions, setPortions] = useState(1);
   const dispatch = useDispatch();
 
+  const updateIngredients = (prevPortionAmount, newPortionAmount) => {
+    dispatch(changePortionAmount({ prevPortionAmount, newPortionAmount }));
+  };
+
   const increment = () => {
     setPortions((prevValue) => {
       if (Number(prevValue) + 1 > MAX) return MAX;
       return Number(prevValue) + 1;
     });
+    updateIngredients(1, 2); // TODO: make previous/next value work
   };
   const decrement = () => {
     setPortions((prevValue) => {

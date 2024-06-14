@@ -23,9 +23,7 @@ const ingredientSlice = createSlice({
       return state.filter(ingredient => id !== ingredient.id);
     },
     updateIngredient(state, action) {
-      const id = action.payload.id;
-      const name = action.payload.name;
-      const amount = action.payload.amount;
+      const { id, name, amount } = action.payload;
             
       const ingredientToChange = state.find(ingredient => id === ingredient.id);
 
@@ -38,9 +36,28 @@ const ingredientSlice = createSlice({
       return state.map(ingredient =>
         ingredient.id !== id ? ingredient : changedIngredient
       );
+    },
+    changePortionAmount(state, action) {
+      const { prevPortionAmount, newPortionAmount } = action.payload;
+
+      return state.map(ingredient => {
+        const newIngredientAmount = ingredient.amount
+          .split(' ')
+          .map(part =>
+            !Number(part)
+              ? part
+              : (Number(part) / (!prevPortionAmount ? 1 : prevPortionAmount) * newPortionAmount)
+          )
+          .join(' ');
+        
+        return {
+          ...ingredient,
+          amount: newIngredientAmount
+        };
+      });
     }
   }
 });
 
-export const { createIngredient, removeIngredient, updateIngredient } = ingredientSlice.actions;
+export const { createIngredient, removeIngredient, updateIngredient, changePortionAmount } = ingredientSlice.actions;
 export default ingredientSlice.reducer;
