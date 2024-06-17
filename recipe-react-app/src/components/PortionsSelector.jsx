@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { changePortionAmount } from '../reducers/ingredientReducer';
 
@@ -7,35 +7,37 @@ const MIN = 1;
 
 const PortionsSelector = () => {
   const [portions, setPortions] = useState(1);
+  const prevPortionsRef = useRef(portions);
   const dispatch = useDispatch();
 
-  const updateIngredients = (prevPortionAmount, newPortionAmount) => {
+  const updateIngredients = useCallback((prevPortionAmount, newPortionAmount) => {
     dispatch(changePortionAmount({ prevPortionAmount, newPortionAmount }));
-  };
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (prevPortionsRef.current !== portions) {
+      updateIngredients(prevPortionsRef.current, portions);
+      prevPortionsRef.current = portions;
+    }
+  }, [portions, updateIngredients]);
 
   const increment = () => {
     setPortions((prevValue) => {
-      if (Number(prevValue) + 1 > MAX) return MAX;
-      return Number(prevValue) + 1;
+      return Math.min(Number(prevValue) + 1, MAX);
     });
-    updateIngredients(1, 2); // TODO: make previous/next value work
   };
   const decrement = () => {
     setPortions((prevValue) => {
-      if (Number(prevValue) - 1 < MIN) return MIN;
-      return Number(prevValue) - 1;
+      return Math.max(Number(prevValue) - 1, MIN);
     });
   };
 
   const handleInputUpdate = (event) => {
     const { value, min, max } = event.target;
-    if (!value || value === '') {
-      setPortions('');
-      return;
-    }
-    setPortions(
-      Math.min(Number(max), Math.max(Number(min), Number(value)))
-    );
+    const newValue = value === ''
+      ? ''
+      : Math.min(Number(max), Math.max(Number(min), Number(value)));
+    setPortions(newValue);
   };
 
   return (
