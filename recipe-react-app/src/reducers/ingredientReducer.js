@@ -48,7 +48,7 @@ const ingredientSlice = createSlice({
           .map(part =>
             !Number(part)
               ? part
-              : (Number(part) / (!prevPortionAmount ? 1 : prevPortionAmount) * newPortionAmount)
+              : Math.round(((Number(part) / (!prevPortionAmount ? 1 : prevPortionAmount) * newPortionAmount) + Number.EPSILON) * 100) / 100
           )
           .join(' ');
         

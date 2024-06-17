@@ -53,20 +53,6 @@ input[type=text] {
   padding-left: 10px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number] {
-  width: 4em;
-  height: 2em;
-  text-align: center;
-
-  appearance: textfield;
-}
-
 .portions-selector {
   display: flex;
   font-size: 16px;
@@ -75,10 +61,6 @@ input[type=number] {
 
 .portions-selector>* {
   margin-right: 0.5em;
-}
-
-#portions-text {
-  margin-left: 0.8em;
 }
 
 .ingredients-list {
