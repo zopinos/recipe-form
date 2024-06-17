@@ -41,6 +41,8 @@ const ingredientSlice = createSlice({
       const { prevPortionAmount, newPortionAmount } = action.payload;
 
       return state.map(ingredient => {
+        if (!ingredient.amount) return ingredient;
+
         const newIngredientAmount = ingredient.amount
           .split(' ')
           .map(part =>

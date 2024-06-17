@@ -1,5 +1,4 @@
-import AutoResizeTextarea from './AutoResizeTextarea';
-import { EditableHeader2 } from './AutoResizeTextarea';
+import AutoResizeTextarea, { EditableHeader2 } from './AutoResizeTextarea';
 
 const TextContent = () => {
   return (

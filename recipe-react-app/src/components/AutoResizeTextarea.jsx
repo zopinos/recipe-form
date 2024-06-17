@@ -11,14 +11,18 @@ const Textarea = styled.textarea`
   line-height: 1.5;
 `;
 
-const AutoResizeTextarea = ({ className, placeholder, defaultValue, onChange }) => {
-  const [text, setText] = useState(defaultValue);
+const AutoResizeTextarea = ({ className, placeholder, replacedValue, onChange }) => {
+  const [text, setText] = useState(replacedValue);
   /* const [selection, setSelection] = useState(); */
   const textareaRef = useRef(null);
 
   useEffect(() => {
     adjustTextareaHeight();
   }, [text]);
+
+  useEffect(() => {
+    setText(replacedValue);
+  }, [replacedValue]);
 
   /* useEffect(() => {
     document.addEventListener('selectionchange', () => {
