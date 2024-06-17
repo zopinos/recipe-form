@@ -11,7 +11,7 @@ const IngredientsList = () => {
 
   return (
     <div className='ingredients-list'>
-      <EditableHeader2 placeholder={'Ingredients Title'} />
+      <EditableHeader2 placeholder={'Ainesosat'} />
       <div className='ingredient-table'>
         {ingredients.map(ingredient =>
           <Ingredient

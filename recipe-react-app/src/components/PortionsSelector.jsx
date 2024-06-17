@@ -13,11 +13,12 @@ const AmountSpan = styled.span`
 `;
 
 const PortionsText = styled.span`
-  margin-left: 0.8em;
+  margin-left: 0.6em;
+  line-height: 30px;
 `;
 
-const MAX = 999;
-const MIN = 1;
+const counterMax = 99;
+const counterMin = 1;
 
 const PortionsSelector = () => {
   const [portions, setPortions] = useState(1);
@@ -29,13 +30,13 @@ const PortionsSelector = () => {
 
   const increment = () => {
     const prevValue = Number(portions);
-    const newValue = Math.min(prevValue + 1, MAX);
+    const newValue = Math.min(prevValue + 1, counterMax);
     updateIngredients(prevValue, newValue);
     setPortions(newValue);
   };
   const decrement = () => {
     const prevValue = Number(portions);
-    const newValue = Math.max(prevValue - 1, MIN);
+    const newValue = Math.max(prevValue - 1, counterMin);
     updateIngredients(prevValue, newValue);
     setPortions(newValue);
   };
@@ -53,7 +54,7 @@ const PortionsSelector = () => {
           add_circle
         </span>
       </button>
-      <PortionsText>portions</PortionsText>
+      <PortionsText>annosta</PortionsText>
     </div>
   );
 };

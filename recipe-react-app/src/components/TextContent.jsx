@@ -3,8 +3,8 @@ import AutoResizeTextarea, { EditableHeader2 } from './AutoResizeTextarea';
 const TextContent = () => {
   return (
     <div className="text-content">
-      <EditableHeader2 placeholder={'Content Title'} />
-      <AutoResizeTextarea placeholder={'Recipe text'} />
+      <EditableHeader2 placeholder={'Ohje'} />
+      <AutoResizeTextarea placeholder={'Ohjeen teksti'} />
     </div>
   );
 };

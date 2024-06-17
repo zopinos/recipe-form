@@ -19,8 +19,8 @@ const Ingredient = ({ ingredient, handleDelete, handleUpdate }) => {
   // TODO: Find out how to update the amount text
   return (
     <IngredientRow>
-      <IngredientAmountText replacedValue={ingredient.amount} placeholder={'amount'} onChange={handleAmountChange} />
-      <IngredientText replacedValue={ingredient.name} placeholder={'name'} onChange={handleNameChange} />
+      <IngredientAmountText replacedValue={ingredient.amount} placeholder={'määrä'} onChange={handleAmountChange} />
+      <IngredientText replacedValue={ingredient.name} placeholder={'nimi'} onChange={handleNameChange} />
       <button className="button button-delete" type="button" onClick={handleDelete}>
         <span className="material-symbols-outlined">
                     delete

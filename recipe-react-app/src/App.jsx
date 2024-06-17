@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="container">
       <EditableHeader1
-        placeholder={'Recipe Title'}
+        placeholder={'Otsikko'}
         onChange={handleTitleChange}
       />
       <PortionsSelector />
