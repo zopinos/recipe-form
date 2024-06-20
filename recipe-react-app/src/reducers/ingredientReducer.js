@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { finnishNumberFormat } from '../util/constants';
 
 const initialState = [
   {
@@ -38,17 +39,19 @@ const ingredientSlice = createSlice({
       );
     },
     changePortionAmount(state, action) {
-      const { prevPortionAmount, newPortionAmount } = action.payload;
+      const { newPortionAmount } = action.payload;
+      const prevPortionAmount = !action.payload.prevPortionAmount ? 1 : action.payload.prevPortionAmount;
 
       return state.map(ingredient => {
         if (!ingredient.amount) return ingredient;
 
         const newIngredientAmount = ingredient.amount
+          .replaceAll(',', '.')
           .split(' ')
           .map(part =>
             !Number(part)
               ? part
-              : Math.round(((Number(part) / (!prevPortionAmount ? 1 : prevPortionAmount) * newPortionAmount) + Number.EPSILON) * 100) / 100
+              : finnishNumberFormat.format(Number(part) / prevPortionAmount * newPortionAmount)
           )
           .join(' ');
         

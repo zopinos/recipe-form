@@ -19,3 +19,5 @@ export const allUnits = Object.keys(conversions)
 export const volumes = Object.keys(conversions.volume);
 
 export const masses = Object.keys(conversions.mass);
+
+export const finnishNumberFormat = new Intl.NumberFormat('fi-FI', { maximumFractionDigits: 2, useGrouping: false });
