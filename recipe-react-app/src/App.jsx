@@ -3,7 +3,7 @@ import { EditableHeader1 } from './components/AutoResizeTextarea';
 import IngredientsList from './components/IngredientsList';
 import TextContent from './components/TextContent';
 import { changeTitle } from './reducers/titleReducer';
-import PortionsSelector from './components/PortionsSelector';
+import TargetPortionsSetter from './components/TargetPortionsSetter';
 
 function App() {
   const title = useSelector(({ title }) => title);
@@ -21,7 +21,7 @@ function App() {
         placeholder={'Otsikko'}
         onChange={handleTitleChange}
       />
-      <PortionsSelector />
+      <TargetPortionsSetter />
       <IngredientsList />
       <TextContent />
       <button className="button button-add-item" type="button">

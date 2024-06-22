@@ -12,11 +12,6 @@ const AmountSpan = styled.span`
   line-height: 30px;
 `;
 
-const PortionsText = styled.span`
-  margin-left: 0.6em;
-  line-height: 30px;
-`;
-
 const counterMax = 99;
 const counterMin = 1;
 
@@ -54,7 +49,7 @@ const PortionsSelector = () => {
           add_circle
         </span>
       </button>
-      <PortionsText>annosta</PortionsText>
+      <span id='portions-text'>annosta</span>
     </div>
   );
 };

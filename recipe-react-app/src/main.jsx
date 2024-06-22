@@ -6,10 +6,12 @@ import App from './App';
 
 import ingredientReducer from './reducers/ingredientReducer';
 import titleReducer from './reducers/titleReducer';
+import targetPortionsReducer from './reducers/targetPortionsReducer';
 
 const store = configureStore({
   reducer: {
     title: titleReducer,
+    targetPortions: targetPortionsReducer,
     ingredients: ingredientReducer,
     /* recipeItems: ,
         theme: , */

@@ -53,6 +53,11 @@ input[type=text] {
   padding-left: 10px;
 }
 
+#portions-text {
+  margin-left: 0.2em;
+  line-height: 30px;
+}
+
 .portions-selector {
   display: flex;
   font-size: 16px;
@@ -60,6 +65,30 @@ input[type=text] {
 }
 
 .portions-selector>* {
+  margin-right: 0.5em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  width: 4em;
+  height: 2em;
+  text-align: center;
+
+  appearance: textfield;
+}
+
+.target-portions-setter {
+  display: flex;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.target-portions-setter>* {
   margin-right: 0.5em;
 }
 
