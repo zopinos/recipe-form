@@ -48,11 +48,6 @@ select {
   border: none;
 }
 
-input[type=text] {
-  width: 18em;
-  padding-left: 10px;
-}
-
 #portions-text {
   margin-left: 0.2em;
   line-height: 30px;
@@ -68,18 +63,10 @@ input[type=text] {
   margin-right: 0.5em;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number] {
+#portions-input {
   width: 4em;
   height: 2em;
   text-align: center;
-
-  appearance: textfield;
 }
 
 .target-portions-setter {

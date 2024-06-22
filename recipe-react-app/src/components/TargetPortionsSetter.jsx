@@ -1,24 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTargetPortionsAmount } from '../reducers/targetPortionsReducer';
 
-const MAX = 99;
-const MIN = 1;
-
 const TargetPortionsSetter = () => {
   const targetPortions = useSelector(({ targetPortions }) => targetPortions);
   const dispatch = useDispatch();
 
   const handleInputUpdate = (event) => {
-    const { value, min, max } = event.target;
+    const { value, min } = event.target;
+    if (!Number(value) && value !== '') return;
     const newValue = value === ''
       ? ''
-      : Math.min(Number(max), Math.max(Number(min), Number(value)));
+      : Math.max(Number(min), Number(value));
     dispatch(changeTargetPortionsAmount(newValue));
   };
 
   return (
     <div className='target-portions-setter'>
-      <input type='number' value={targetPortions} onChange={handleInputUpdate} min={MIN} max={MAX} />
+      <input id='portions-input' type='text' inputMode="numeric" value={targetPortions} onChange={handleInputUpdate} min={1} maxLength={2} />
       <span id='portions-text'>annosta</span>
     </div>
   );
