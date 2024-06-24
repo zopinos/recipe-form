@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const targetPortionsSlice = createSlice({
   name: 'targetPortions',
-  initialState: 1,
+  initialState: 2,
   reducers: {
     changeTargetPortionsAmount(state, action) {
       return action.payload;

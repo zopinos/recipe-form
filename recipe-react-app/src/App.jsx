@@ -24,11 +24,6 @@ function App() {
       <TargetPortionsSetter />
       <IngredientsList />
       <TextContent />
-      <button className="button button-add-item" type="button">
-        <span className="material-symbols-outlined">
-          add_circle
-        </span>
-      </button>
     </div>
   );
 }

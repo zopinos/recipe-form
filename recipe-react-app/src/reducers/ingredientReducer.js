@@ -4,8 +4,6 @@ import { finnishNumberFormat } from '../util/constants';
 const initialState = [
   {
     id: 0,
-    name: 'muna',
-    amount: '1',
   }
 ];
 
