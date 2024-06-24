@@ -5,16 +5,16 @@ import './index.css';
 import App from './App';
 
 import ingredientReducer from './reducers/ingredientReducer';
-import titleReducer from './reducers/titleReducer';
+import titlesReducer from './reducers/titlesReducer';
 import targetPortionsReducer from './reducers/targetPortionsReducer';
+import instructionsReducer from './reducers/instructionsReducer';
 
 const store = configureStore({
   reducer: {
-    title: titleReducer,
+    titles: titlesReducer,
     targetPortions: targetPortionsReducer,
     ingredients: ingredientReducer,
-    /* recipeItems: ,
-        theme: , */
+    instructions: instructionsReducer,
   }
 });
 
