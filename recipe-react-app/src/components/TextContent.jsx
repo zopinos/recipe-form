@@ -1,23 +1,24 @@
-import { useDispatch } from 'react-redux';
 import AutoResizeTextarea, { EditableHeader2 } from './AutoResizeTextarea';
-import { changeTitles } from '../reducers/titlesReducer';
-import { changeInstructions } from '../reducers/instructionsReducer';
 
-const TextContent = () => {
-  const dispatch = useDispatch();
-
+const TextContent = ({textContent, handleDelete, handleUpdate }) => {
   const handleTitleChange = (event) => {
-    dispatch(changeTitles({ instructionsTitle: event.target.value }));
+    handleUpdate({...textContent, title: event.target.value});
   };
 
-  const handleInstructionsChange = (event) => {
-    dispatch(changeInstructions(event.target.value));
+  const handleTextChange = (event) => {
+    handleUpdate({...textContent, text: event.target.value});
   };
 
   return (
     <div className="text-content">
-      <EditableHeader2 placeholder={'Ohje'} onChange={handleTitleChange} />
-      <AutoResizeTextarea placeholder={'Ohjeen teksti'} onChange={handleInstructionsChange} />
+      <EditableHeader2 replacedValue={textContent.title} placeholder={'Ohje'} onChange={handleTitleChange} />
+      <AutoResizeTextarea replacedValue={textContent.text} placeholder={'Ohjeen teksti'} onChange={handleTextChange} />
+
+      <button className="button" type="button" onClick={handleDelete}>
+        <span>
+          delete
+        </span>
+      </button>
     </div>
   );
 };

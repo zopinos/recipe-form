@@ -1,21 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { EditableHeader1 } from './components/AutoResizeTextarea';
 import IngredientsList from './components/IngredientsList';
-import TextContent from './components/TextContent';
-import { changeTitles } from './reducers/titlesReducer';
+import { changeTitle } from './reducers/titleReducer';
 import TargetPortionsSetter from './components/TargetPortionsSetter';
 import exportObjectAsJSON from './util/exporting';
+import TextContentContainer from './components/TextContentContainer';
 
 function App() {
-  const titles = useSelector(({ titles }) => titles);
+  const title = useSelector(({ title }) => title);
   const targetPortions = useSelector(({ targetPortions }) => targetPortions);
   const ingredients = useSelector(({ ingredients }) => ingredients);
-  const instructions = useSelector(({ instructions }) =>  instructions);
+  const textContents = useSelector(({ textContents }) => textContents);
 
   const dispatch = useDispatch();
 
   const handleTitleChange = (event) => {
-    dispatch(changeTitles({ recipeTitle: event.target.value }));
+    dispatch(changeTitle(event.target.value));
   };
 
   return (
@@ -26,8 +26,8 @@ function App() {
       />
       <TargetPortionsSetter />
       <IngredientsList />
-      <TextContent />
-      <button type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { titles, targetPortions, ingredients, instructions });}}>
+      <TextContentContainer />
+      <button type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, targetPortions, ingredients, textContents });}}>
         <span>
           export as json
         </span>
