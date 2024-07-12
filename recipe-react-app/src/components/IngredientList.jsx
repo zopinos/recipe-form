@@ -4,7 +4,7 @@ import Ingredient from './Ingredient';
 import { EditableHeader2 } from './AutoResizeTextarea';
 import { createIngredient, removeIngredient, updateIngredient } from '../reducers/ingredientReducer';
 
-const IngredientsList = () => {
+const IngredientList = ({ ingredientList, handleDelete, handleUpdate }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   const ingredients = useSelector(({ ingredients }) => ingredients);
@@ -42,4 +42,4 @@ const IngredientsList = () => {
   );
 };
 
-export default IngredientsList;
+export default IngredientList;

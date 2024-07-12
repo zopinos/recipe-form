@@ -14,7 +14,7 @@ const TextContent = ({textContent, handleDelete, handleUpdate }) => {
       <EditableHeader2 replacedValue={textContent.title} placeholder={'Ohje'} onChange={handleTitleChange} />
       <AutoResizeTextarea replacedValue={textContent.text} placeholder={'Ohjeen teksti'} onChange={handleTextChange} />
 
-      <button className="button" type="button" onClick={handleDelete}>
+      <button type="button" onClick={handleDelete}>
         <span>
           delete
         </span>

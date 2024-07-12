@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { EditableHeader1 } from './components/AutoResizeTextarea';
-import IngredientsList from './components/IngredientsList';
 import { changeTitle } from './reducers/titleReducer';
 import TargetPortionsSetter from './components/TargetPortionsSetter';
 import exportObjectAsJSON from './util/exporting';
+import IngredientListContainer from './components/IngredientListContainer';
 import TextContentContainer from './components/TextContentContainer';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         onChange={handleTitleChange}
       />
       <TargetPortionsSetter />
-      <IngredientsList />
+      <IngredientListContainer />
       <TextContentContainer />
       <button type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, targetPortions, ingredients, textContents });}}>
         <span>

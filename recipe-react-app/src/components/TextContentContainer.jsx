@@ -20,7 +20,6 @@ const TextContentContainer = () => {
         />
       )}
       <button
-        className='button'
         type='button'
         onClick={() => {
           dispatch(createTextContent(count));
