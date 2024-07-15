@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTargetPortionsAmount } from '../reducers/targetPortionsReducer';
+import { setTargetPortionsAmount } from '../reducers/targetPortionsReducer';
 
 const TargetPortionsSetter = () => {
   const targetPortions = useSelector(({ targetPortions }) => targetPortions);
@@ -11,7 +11,7 @@ const TargetPortionsSetter = () => {
     const newValue = value === ''
       ? ''
       : Math.max(Number(min), Number(value));
-    dispatch(changeTargetPortionsAmount(newValue));
+    dispatch(setTargetPortionsAmount(newValue));
   };
 
   return (

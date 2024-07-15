@@ -12,6 +12,9 @@ const ingredientSlice = createSlice({
   name: 'ingredientLists',
   initialState,
   reducers: {
+    setIngredientLists(state, action) {
+      return action.payload;
+    },
     createIngredientList(state, action) {
       const nextID = action.payload;
       state.push({
@@ -113,6 +116,7 @@ const ingredientSlice = createSlice({
 });
 
 export const {
+  setIngredientLists,
   createIngredientList,
   removeIngredientList,
   changeIngredientListTitle,

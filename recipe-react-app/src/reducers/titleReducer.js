@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const titleSlice = createSlice({
   name: 'title',
-  initialState: 'Otsikko',
+  initialState: '',
   reducers: {
-    changeTitle(state, action) {
+    setTitle(state, action) {
       return action.payload;
     }
   }
 });
 
-export const { changeTitle } = titleSlice.actions;
+export const { setTitle } = titleSlice.actions;
 export default titleSlice.reducer;

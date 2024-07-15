@@ -20,7 +20,7 @@ const IngredientList = ({
 
   return (
     <div className='ingredients-list'>
-      <EditableHeader2 placeholder={'Ainesosat'} onChange={handleTitleChange} />
+      <EditableHeader2 replacedValue={ingredientList.title} placeholder={'Ainesosat'} onChange={handleTitleChange} />
       <div className='ingredient-table'>
         {ingredients.map(ingredient =>
           <Ingredient

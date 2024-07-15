@@ -4,11 +4,11 @@ const targetPortionsSlice = createSlice({
   name: 'targetPortions',
   initialState: 2,
   reducers: {
-    changeTargetPortionsAmount(state, action) {
+    setTargetPortionsAmount(state, action) {
       return action.payload;
     }
   }
 });
 
-export const { changeTargetPortionsAmount } = targetPortionsSlice.actions;
+export const { setTargetPortionsAmount } = targetPortionsSlice.actions;
 export default targetPortionsSlice.reducer;

@@ -10,6 +10,9 @@ const textContentSlice = createSlice({
   name: 'textContents',
   initialState,
   reducers: {
+    setTextContent(state, action) {
+      return action.payload;
+    },
     createTextContent(state, action) {
       const nextID = action.payload;
       state.push({
@@ -38,5 +41,5 @@ const textContentSlice = createSlice({
   }
 });
 
-export const { createTextContent, removeTextContent, updateTextContent } = textContentSlice.actions;
+export const { setTextContent, createTextContent, removeTextContent, updateTextContent } = textContentSlice.actions;
 export default textContentSlice.reducer;
