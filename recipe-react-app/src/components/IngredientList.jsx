@@ -5,6 +5,7 @@ import { EditableHeader2 } from './AutoResizeTextarea';
 const IngredientList = ({
   ingredientList,
   handleDelete,
+  handleUpdate,
   handleIngredientAdd,
   handleIngredientRemove,
   handleIngredientUpdate
@@ -13,13 +14,13 @@ const IngredientList = ({
 
   const ingredients = ingredientList.ingredients;
 
-  /* const handleTitleChange = (event) => {
-    dispatch();
-  }; */
+  const handleTitleChange = (event) => {
+    handleUpdate(event.target.value);
+  };
 
   return (
     <div className='ingredients-list'>
-      <EditableHeader2 placeholder={'Ainesosat'} />
+      <EditableHeader2 placeholder={'Ainesosat'} onChange={handleTitleChange} />
       <div className='ingredient-table'>
         {ingredients.map(ingredient =>
           <Ingredient

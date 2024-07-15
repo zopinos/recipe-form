@@ -23,6 +23,18 @@ const ingredientSlice = createSlice({
       const id = action.payload;
       return state.filter(ingredientList => id !== ingredientList.id);
     },
+    changeIngredientListTitle(state, action) {
+      const { id, title } = action.payload;
+
+      const ingredientListToChange = state.find(ingredientList => id === ingredientList.id);
+
+      const changedIngredientList = {
+        ...ingredientListToChange,
+        title
+      };
+
+      return state.map(ingredientList => ingredientList.id !== id ? ingredientList : changedIngredientList);
+    },
     createIngredient(state, action) {
       const { listID, ingredientID } = action.payload;
 
@@ -103,6 +115,7 @@ const ingredientSlice = createSlice({
 export const {
   createIngredientList,
   removeIngredientList,
+  changeIngredientListTitle,
   createIngredient,
   removeIngredient,
   updateIngredient,

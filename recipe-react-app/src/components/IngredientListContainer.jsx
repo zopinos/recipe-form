@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import IngredientList from './IngredientList';
-import { createIngredient, createIngredientList, removeIngredient, removeIngredientList, updateIngredient } from '../reducers/ingredientReducer';
+import { changeIngredientListTitle, createIngredient, createIngredientList, removeIngredient, removeIngredientList, updateIngredient } from '../reducers/ingredientReducer';
 
 const IngredientListContainer = () => {
   const [count, setCount] = useState(1);
@@ -16,6 +16,7 @@ const IngredientListContainer = () => {
           key={ingredientList.id}
           ingredientList={ingredientList}
           handleDelete={() => dispatch(removeIngredientList(ingredientList.id))}
+          handleUpdate={(title) => dispatch(changeIngredientListTitle({ id: ingredientList.id, title}))}
           handleIngredientAdd={(listID, ingredientID) => dispatch(createIngredient({ listID, ingredientID }))}
           handleIngredientRemove={(listID, ingredientID) => dispatch(removeIngredient({ listID, ingredientID }))}
           handleIngredientUpdate={(listID, ingredientID, name, amount) => dispatch(updateIngredient({ listID, ingredientID, name, amount }))}
