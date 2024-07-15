@@ -4,27 +4,57 @@ import { finnishNumberFormat } from '../util/constants';
 const initialState = [
   {
     id: 0,
+    ingredients: [{ id: 0 }]
   }
 ];
 
 const ingredientSlice = createSlice({
-  name: 'ingredients',
+  name: 'ingredientLists',
   initialState,
   reducers: {
-    createIngredient(state, action) {
+    createIngredientList(state, action) {
       const nextID = action.payload;
       state.push({
-        id: nextID
+        id: nextID,
+        ingredients: [{ id: 0 }]
       });
     },
-    removeIngredient(state, action) {
+    removeIngredientList(state, action) {
       const id = action.payload;
-      return state.filter(ingredient => id !== ingredient.id);
+      return state.filter(ingredientList => id !== ingredientList.id);
+    },
+    createIngredient(state, action) {
+      const { listID, ingredientID } = action.payload;
+
+      const ingredientListToChange = state.find(ingredientList => listID === ingredientList.id);
+
+      const changedIngredientList = {
+        ...ingredientListToChange,
+        ingredients: ingredientListToChange.ingredients.concat({ id: ingredientID })
+      };
+
+      return state.map(ingredientList =>
+        ingredientList.id !== listID ? ingredientList : changedIngredientList
+      );
+    },
+    removeIngredient(state, action) {
+      const { listID, ingredientID } = action.payload;
+      return state.map(ingredientList =>
+        ingredientList.id !== listID
+          ? ingredientList
+          : { ...ingredientList,
+            ingredients: ingredientList.ingredients.filter(ingredient => ingredientID !== ingredient.id)
+          }
+      );
     },
     updateIngredient(state, action) {
-      const { id, name, amount } = action.payload;
+      const { listID, ingredientID, name, amount } = action.payload;
             
-      const ingredientToChange = state.find(ingredient => id === ingredient.id);
+      const ingredientToChange = state.find(
+        ingredientList => listID === ingredientList.id
+      ).ingredients.find(
+        ingredient => ingredientID === ingredient.id
+      );
 
       const changedIngredient = {
         ...ingredientToChange,
@@ -32,8 +62,16 @@ const ingredientSlice = createSlice({
         amount
       };
 
-      return state.map(ingredient =>
-        ingredient.id !== id ? ingredient : changedIngredient
+      return state.map(ingredientList =>
+        ingredientList.id !== listID
+          ? ingredientList
+          : { ...ingredientList,
+            ingredients: ingredientList.ingredients.map(ingredient =>
+              ingredientID !== ingredient.id
+                ? ingredient
+                : changedIngredient
+            )
+          }
       );
     },
     changePortionAmount(state, action) {
@@ -62,5 +100,12 @@ const ingredientSlice = createSlice({
   }
 });
 
-export const { createIngredient, removeIngredient, updateIngredient, changePortionAmount } = ingredientSlice.actions;
+export const {
+  createIngredientList,
+  removeIngredientList,
+  createIngredient,
+  removeIngredient,
+  updateIngredient,
+  changePortionAmount
+} = ingredientSlice.actions;
 export default ingredientSlice.reducer;

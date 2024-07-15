@@ -8,13 +8,13 @@ const IngredientRow = styled.div`
   margin-bottom: 10px;
 `;
 
-const Ingredient = ({ ingredient, handleDelete, handleUpdate }) => {
+const Ingredient = ({ ingredient, listID, handleDelete, handleUpdate }) => {
   const handleNameChange = (event) => {
-    handleUpdate({...ingredient, name: event.target.value});
+    handleUpdate(listID, ingredient.id, event.target.value, ingredient.amount);
   };
 
   const handleAmountChange = (event) => {
-    handleUpdate({...ingredient, amount: event.target.value});
+    handleUpdate(listID, ingredient.id, ingredient.name, event.target.value);
   };
   
   return (

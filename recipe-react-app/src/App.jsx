@@ -9,7 +9,7 @@ import TextContentContainer from './components/TextContentContainer';
 function App() {
   const title = useSelector(({ title }) => title);
   const targetPortions = useSelector(({ targetPortions }) => targetPortions);
-  const ingredients = useSelector(({ ingredients }) => ingredients);
+  const ingredients = useSelector(({ ingredientLists }) => ingredientLists);
   const textContents = useSelector(({ textContents }) => textContents);
 
   const dispatch = useDispatch();

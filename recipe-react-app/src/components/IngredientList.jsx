@@ -1,13 +1,17 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import Ingredient from './Ingredient';
 import { EditableHeader2 } from './AutoResizeTextarea';
-import { createIngredient, removeIngredient, updateIngredient } from '../reducers/ingredientReducer';
 
-const IngredientList = ({ ingredientList, handleDelete, handleUpdate }) => {
+const IngredientList = ({
+  ingredientList,
+  handleDelete,
+  handleIngredientAdd,
+  handleIngredientRemove,
+  handleIngredientUpdate
+}) => {
   const [count, setCount] = useState(1);
-  const dispatch = useDispatch();
-  const ingredients = useSelector(({ ingredients }) => ingredients);
+
+  const ingredients = ingredientList.ingredients;
 
   /* const handleTitleChange = (event) => {
     dispatch();
@@ -21,8 +25,9 @@ const IngredientList = ({ ingredientList, handleDelete, handleUpdate }) => {
           <Ingredient
             key={ingredient.id}
             ingredient={ingredient}
-            handleDelete={() => dispatch(removeIngredient(ingredient.id))}
-            handleUpdate={(payload) => dispatch(updateIngredient(payload))}
+            listID={ingredientList.id}
+            handleDelete={() => handleIngredientRemove(ingredientList.id, ingredient.id)}
+            handleUpdate={handleIngredientUpdate}
           />
         )}
       </div>
@@ -30,12 +35,17 @@ const IngredientList = ({ ingredientList, handleDelete, handleUpdate }) => {
         className='button button-add-ingredient'
         type='button'
         onClick={() => {
-          dispatch(createIngredient(count));
+          handleIngredientAdd(ingredientList.id, count);
           setCount((prevValue) => prevValue + 1);
         }}
       >
         <span className="material-symbols-outlined">
                     add_circle
+        </span>
+      </button>
+      <button type='button' onClick={handleDelete} >
+        <span>
+          remove list
         </span>
       </button>
     </div>

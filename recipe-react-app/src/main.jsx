@@ -13,7 +13,7 @@ const store = configureStore({
   reducer: {
     title: titleReducer,
     targetPortions: targetPortionsReducer,
-    ingredients: ingredientReducer,
+    ingredientLists: ingredientReducer,
     textContents: textContentReducer,
   }
 });
