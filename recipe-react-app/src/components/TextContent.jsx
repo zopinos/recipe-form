@@ -12,7 +12,7 @@ const TextContent = ({textContent, handleDelete, handleUpdate }) => {
   return (
     <div className="text-content">
       <button className='button button-remove-item' type="button" onClick={handleDelete}>
-        <img className='ui-remove-item' src='/src/assets/RemoveItem.svg' />
+        <img className='graphics-remove-item' src='/src/assets/RemoveItem.svg' />
       </button>
       <EditableHeader2 replacedValue={textContent.title} placeholder={'Ohje'} onChange={handleTitleChange} />
       <AutoResizeTextarea replacedValue={textContent.text} placeholder={'Ohjeen teksti'} onChange={handleTextChange} />

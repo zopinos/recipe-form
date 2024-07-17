@@ -21,7 +21,7 @@ const IngredientList = ({
   return (
     <div className='ingredients-list'>
       <button className='button button-remove-item' type='button' onClick={handleDelete} >
-        <img className='ui-remove-item' src='/src/assets/RemoveItem.svg' />
+        <img className='graphics-remove-item' src='/src/assets/RemoveItem.svg' />
       </button>
       <EditableHeader2 replacedValue={ingredientList.title} placeholder={'Ainesosat'} onChange={handleTitleChange} />
       <div className='ingredient-table'>
@@ -43,7 +43,7 @@ const IngredientList = ({
           setCount((prevValue) => prevValue + 1);
         }}
       >
-        <img className='ui-add-ingredient' src='/src/assets/AddIngredient.svg' />
+        <img className='graphics-add-ingredient' src='/src/assets/AddIngredient.svg' />
       </button>
     </div>
   );

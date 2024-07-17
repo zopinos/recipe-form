@@ -101,15 +101,15 @@ select {
     border: none;
 } */
 
-.ui-add-ingredient {
+.graphics-add-ingredient {
   width: 30px;
 }
 
-.ui-remove-ingredient {
+.graphics-remove-ingredient {
   width: 30px;
 }
 
-.ui-remove-item {
+.graphics-remove-item {
   width: 35px;
 }
 
