@@ -67,7 +67,7 @@ const AutoResizeTextarea = ({ className, placeholder, replacedValue, onChange })
 export const EditableHeader1 = styled(AutoResizeTextarea)`
   font-size: 36px;
   font-weight: 700;
-  margin-top: 30px;
+  margin-top: 70px;
 `;
 
 export const EditableHeader2 = styled(AutoResizeTextarea)`
