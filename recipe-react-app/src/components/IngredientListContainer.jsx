@@ -10,7 +10,7 @@ const IngredientListContainer = () => {
   const ingredientLists = useSelector(({ ingredientLists }) => ingredientLists);
 
   return (
-    <div className="text-content-container">
+    <div className="ingredient-list-container">
       {ingredientLists.map(ingredientList => 
         <IngredientList
           key={ingredientList.id}

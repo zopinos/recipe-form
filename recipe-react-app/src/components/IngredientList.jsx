@@ -20,6 +20,9 @@ const IngredientList = ({
 
   return (
     <div className='ingredients-list'>
+      <button className='button button-remove-item' type='button' onClick={handleDelete} >
+        <img className='ui-remove-item' src='/src/assets/RemoveItem.svg' />
+      </button>
       <EditableHeader2 replacedValue={ingredientList.title} placeholder={'Ainesosat'} onChange={handleTitleChange} />
       <div className='ingredient-table'>
         {ingredients.map(ingredient =>
@@ -40,14 +43,7 @@ const IngredientList = ({
           setCount((prevValue) => prevValue + 1);
         }}
       >
-        <span className="material-symbols-outlined">
-                    add_circle
-        </span>
-      </button>
-      <button type='button' onClick={handleDelete} >
-        <span>
-          remove list
-        </span>
+        <img className='ui-add-ingredient' src='/src/assets/AddIngredient.svg' />
       </button>
     </div>
   );

@@ -101,14 +101,31 @@ select {
     border: none;
 } */
 
+.ui-add-ingredient {
+  width: 30px;
+}
+
+.ui-remove-ingredient {
+  width: 30px;
+}
+
+.ui-remove-item {
+  width: 35px;
+}
+
+.button-remove-item {
+  display: flex;
+  align-items: center;
+}
+
 .button {
-  --button-color: #706c5d;
-  --button-hover: #31302c;
+  --button-opacity: 0.6;
+  --button-hover: 0.9;
 
   display: inline-flex;
   align-items: center;
   background: none;
-  color: var(--button-color);
+  opacity: var(--button-opacity);
   outline: none;
   border: none;
   cursor: pointer;
@@ -120,7 +137,7 @@ select {
 
 .button:hover,
 .button:active {
-  color: var(--button-hover);
+  opacity: var(--button-hover);
 }
 
 @media (min-width: 500px) {

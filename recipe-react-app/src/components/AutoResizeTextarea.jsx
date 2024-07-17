@@ -73,7 +73,7 @@ export const EditableHeader1 = styled(AutoResizeTextarea)`
 export const EditableHeader2 = styled(AutoResizeTextarea)`
   font-weight: 700;
   width: 50%;
-  margin-top: 30px;
+  margin-top: 5px;
   padding: 8px;
   text-decoration: underline;
 `;

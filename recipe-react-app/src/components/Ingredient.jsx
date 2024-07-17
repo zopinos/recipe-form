@@ -22,9 +22,7 @@ const Ingredient = ({ ingredient, listID, handleDelete, handleUpdate }) => {
       <IngredientAmountText replacedValue={ingredient.amount} placeholder={'määrä'} onChange={handleAmountChange} />
       <IngredientText replacedValue={ingredient.name} placeholder={'nimi'} onChange={handleNameChange} />
       <button className="button button-delete" type="button" onClick={handleDelete}>
-        <span className="material-symbols-outlined">
-                    delete
-        </span>
+        <img className='ui-remove-ingredient' src='/src/assets/RemoveIngredient2.svg' />
       </button>
     </IngredientRow>
   );
