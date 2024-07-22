@@ -82,8 +82,13 @@ select {
   margin-right: 0.5em;
 }
 
+.ingredients-list-container {
+  display: block;
+}
+
 .ingredients-list {
-  margin-top: 20px;
+  display: block;
+  margin-top: 30px;
 }
 
 .text-content {
@@ -116,17 +121,13 @@ select {
   width: 35px;
 }
 
-.button-remove-item {
-  display: flex;
-  align-items: center;
-}
-
 .button {
   --button-opacity: 0.6;
   --button-hover: 0.9;
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: none;
   opacity: var(--button-opacity);
   outline: none;
@@ -134,13 +135,14 @@ select {
   cursor: pointer;
 }
 
-.material-symbols-outlined {
-  font-size: 28px;
-}
-
 .button:hover,
 .button:active {
   opacity: var(--button-hover);
+}
+
+.container-remove-item {
+  display: flex;
+  justify-content: end;
 }
 
 @media (min-width: 500px) {

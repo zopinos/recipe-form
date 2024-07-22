@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Ingredient from './Ingredient';
 import { EditableHeader2 } from './AutoResizeTextarea';
+import ItemRemoveButton from './ItemRemoveButton';
 
 const IngredientList = ({
   ingredientList,
@@ -20,9 +21,7 @@ const IngredientList = ({
 
   return (
     <div className='ingredients-list'>
-      <button className='button button-remove-item' type='button' onClick={handleDelete} >
-        <img className='graphics-remove-item' src='/src/assets/remove-item.svg' />
-      </button>
+      <ItemRemoveButton handleDelete={handleDelete} />
       <EditableHeader2 replacedValue={ingredientList.title} placeholder={'Ainesosat'} onChange={handleTitleChange} />
       <div className='ingredient-table'>
         {ingredients.map(ingredient =>

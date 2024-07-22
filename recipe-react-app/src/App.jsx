@@ -9,6 +9,7 @@ import { setTargetPortionsAmount } from './reducers/targetPortionsReducer';
 import { setIngredientLists } from './reducers/ingredientReducer';
 import { setTextContent } from './reducers/textContentReducer';
 import FileInput from './components/FileInput';
+import Togglable from './components/Togglable';
 
 function App() {
   const title = useSelector(({ title }) => title);
@@ -37,7 +38,7 @@ function App() {
         replacedValue={title}
         onChange={handleTitleChange}
       />
-      <TargetPortionsSetter />
+      <Togglable toggleOnLabel='Lisää annosmäärä' toggleOffLabel='Poista annosmäärä' ><TargetPortionsSetter /></Togglable>
       <IngredientListContainer />
       <TextContentContainer />
       <button type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, targetPortions, ingredients, textContents });}}>
