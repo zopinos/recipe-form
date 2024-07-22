@@ -11,12 +11,15 @@ const TargetPortionsSetter = () => {
     const newValue = value === ''
       ? ''
       : Math.max(Number(min), Number(value));
-    dispatch(setTargetPortionsAmount(newValue));
+    dispatch(setTargetPortionsAmount({
+      included: targetPortions.included,
+      portions: newValue
+    }));
   };
 
   return (
     <div className='target-portions-setter'>
-      <input id='portions-input' type='text' inputMode="numeric" value={targetPortions} onChange={handleInputUpdate} min={1} maxLength={2} />
+      <input id='portions-input' type='text' inputMode="numeric" value={targetPortions.portions} onChange={handleInputUpdate} min={1} maxLength={2} />
       <span id='portions-text'>annosta</span>
     </div>
   );

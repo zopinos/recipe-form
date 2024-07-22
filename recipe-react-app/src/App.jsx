@@ -13,22 +13,29 @@ import Togglable from './components/Togglable';
 
 function App() {
   const title = useSelector(({ title }) => title);
-  const targetPortions = useSelector(({ targetPortions }) => targetPortions);
+  const portions = useSelector(({ targetPortions }) => targetPortions);
   const ingredients = useSelector(({ ingredientLists }) => ingredientLists);
   const textContents = useSelector(({ textContents }) => textContents);
 
   const dispatch = useDispatch();
 
+  const handleStateImport = (json) => {
+    const { title, portions, ingredients, textContents } = json;
+    dispatch(setTitle(title));
+    dispatch(setTargetPortionsAmount(portions));
+    dispatch(setIngredientLists(ingredients));
+    dispatch(setTextContent(textContents));
+  };
+
   const handleTitleChange = (event) => {
     dispatch(setTitle(event.target.value));
   };
 
-  const handleStateImport = (json) => {
-    const { title, targetPortions, ingredients, textContents } = json;
-    dispatch(setTitle(title));
-    dispatch(setTargetPortionsAmount(targetPortions));
-    dispatch(setIngredientLists(ingredients));
-    dispatch(setTextContent(textContents));
+  const handlePortionsVisibilityChange = (included) => {
+    dispatch(setTargetPortionsAmount({
+      portions: portions.portions,
+      included
+    }));
   };
 
   return (
@@ -38,10 +45,17 @@ function App() {
         replacedValue={title}
         onChange={handleTitleChange}
       />
-      <Togglable toggleOnLabel='Lisää annosmäärä' toggleOffLabel='Poista annosmäärä' ><TargetPortionsSetter /></Togglable>
+      <Togglable
+        visible={portions.included}
+        handleChange={handlePortionsVisibilityChange}
+        toggleOnLabel='Lisää annosmäärä'
+        toggleOffLabel='Poista annosmäärä'
+      >
+        <TargetPortionsSetter />
+      </Togglable>
       <IngredientListContainer />
       <TextContentContainer />
-      <button type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, targetPortions, ingredients, textContents });}}>
+      <button type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, portions, ingredients, textContents });}}>
         <span>
           export as json
         </span>

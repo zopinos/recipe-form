@@ -1,8 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  portions: 2,
+  included: true
+};
+
 const targetPortionsSlice = createSlice({
   name: 'targetPortions',
-  initialState: 2,
+  initialState,
   reducers: {
     setTargetPortionsAmount(state, action) {
       return action.payload;

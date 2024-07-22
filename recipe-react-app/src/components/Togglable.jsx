@@ -1,13 +1,11 @@
-import { useState } from 'react';
-
 const Togglable = (props) => {
-  const [visible, setVisible] = useState(false);
+  const { visible } = props;
 
   const hideWhenVisible = { display: visible ? 'none' : '' };
   const showWhenVisible = { display: visible ? '' : 'none' };
 
   const toggleVisibility = () => {
-    setVisible(!visible);
+    props.handleChange(!visible);
   };
 
   return (
