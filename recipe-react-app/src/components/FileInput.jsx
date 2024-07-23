@@ -20,7 +20,8 @@ const FileInput = ({ handleFile }) => {
 
   return (
     <div>
-      <input type="file" accept=".json" onChange={handleFileChange} />
+      <label className="button button-text" htmlFor='button-import' >Tuo resepti</label>
+      <input type="file" id='button-import' accept=".json" onChange={handleFileChange} />
     </div>
   );
 };

@@ -55,10 +55,8 @@ function App() {
       </Togglable>
       <IngredientListContainer />
       <TextContentContainer />
-      <button type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, portions, ingredients, textContents });}}>
-        <span>
-          export as json
-        </span>
+      <button className='button button-text' type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, portions, ingredients, textContents });}}>
+        <span>Export as json</span>
       </button>
       <FileInput handleFile={handleStateImport} />
     </div>
