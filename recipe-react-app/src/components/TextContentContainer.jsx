@@ -19,17 +19,18 @@ const TextContentContainer = () => {
           handleUpdate={(payload) => dispatch(updateTextContent(payload))}
         />
       )}
-      <button
-        type='button'
-        onClick={() => {
-          dispatch(createTextContent(count));
-          setCount((prevValue) => prevValue + 1);
-        }}
-      >
-        <span>
-          add new text
-        </span>
-      </button>
+      <div className='container-add-item'>
+        <button
+          className='button button-add-text'
+          type='button'
+          onClick={() => {
+            dispatch(createTextContent(count));
+            setCount((prevValue) => prevValue + 1);
+          }}
+        >
+          <img className='graphics-add-text' src='/src/assets/add-text.svg' />
+        </button>
+      </div>
     </div>
   );
 };

@@ -22,17 +22,18 @@ const IngredientListContainer = () => {
           handleIngredientUpdate={(listID, ingredientID, name, amount) => dispatch(updateIngredient({ listID, ingredientID, name, amount }))}
         />
       )}
-      <button
-        type='button'
-        onClick={() => {
-          dispatch(createIngredientList(count));
-          setCount((prevValue) => prevValue + 1);
-        }}
-      >
-        <span>
-          add new list
-        </span>
-      </button>
+      <div className='container-add-item'>
+        <button
+          className='button button-add-list'
+          type='button'
+          onClick={() => {
+            dispatch(createIngredientList(count));
+            setCount((prevValue) => prevValue + 1);
+          }}
+        >
+          <img className='graphics-add-list' src='/src/assets/add-list.svg' />
+        </button>
+      </div>
     </div>
   );
 };

@@ -82,7 +82,7 @@ select {
   margin-right: 0.5em;
 }
 
-.ingredients-list-container {
+.ingredient-list-container {
   display: block;
 }
 
@@ -111,6 +111,14 @@ select {
 
 .graphics-add-ingredient {
   width: 30px;
+}
+
+.graphics-add-list {
+  width: 50px;
+}
+
+.graphics-add-text {
+  width: 50px;
 }
 
 .graphics-remove-ingredient {
@@ -143,6 +151,12 @@ select {
 .container-remove-item {
   display: flex;
   justify-content: end;
+}
+
+.container-add-item {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 @media (min-width: 500px) {
