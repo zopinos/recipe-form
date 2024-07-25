@@ -9,7 +9,6 @@ import { setTargetPortionsAmount } from './reducers/targetPortionsReducer';
 import { setIngredientLists } from './reducers/ingredientReducer';
 import { setTextContent } from './reducers/textContentReducer';
 import FileInput from './components/FileInput';
-import Togglable from './components/Togglable';
 
 function App() {
   const title = useSelector(({ title }) => title);
@@ -31,13 +30,6 @@ function App() {
     dispatch(setTitle(event.target.value));
   };
 
-  const handlePortionsVisibilityChange = (included) => {
-    dispatch(setTargetPortionsAmount({
-      portions: portions.portions,
-      included
-    }));
-  };
-
   return (
     <div className="container">
       <EditableHeader1
@@ -45,14 +37,7 @@ function App() {
         replacedValue={title}
         onChange={handleTitleChange}
       />
-      <Togglable
-        visible={portions.included}
-        handleChange={handlePortionsVisibilityChange}
-        toggleOnLabel='Lisää annosmäärä'
-        toggleOffLabel='Poista annosmäärä'
-      >
-        <TargetPortionsSetter />
-      </Togglable>
+      <TargetPortionsSetter />
       <IngredientListContainer />
       <TextContentContainer />
       <div className='save-load-container'>
