@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { EditableHeader1 } from './components/AutoResizeTextarea';
 import TargetPortionsSetter from './components/TargetPortionsSetter';
-import exportObjectAsJSON from './util/exporting';
 import IngredientListContainer from './components/IngredientListContainer';
 import TextContentContainer from './components/TextContentContainer';
+import FileInput from './components/FileInput';
+
+import exportObjectAsJSON from './util/exporting';
+
 import { setTitle } from './reducers/titleReducer';
 import { setTargetPortionsAmount } from './reducers/targetPortionsReducer';
 import { setIngredientLists } from './reducers/ingredientReducer';
 import { setTextContent } from './reducers/textContentReducer';
-import FileInput from './components/FileInput';
 
 function App() {
   const title = useSelector(({ title }) => title);
