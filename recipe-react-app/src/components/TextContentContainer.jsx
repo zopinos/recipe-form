@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextContent from './TextContent';
 import { createTextContent, removeTextContent, updateTextContent } from '../reducers/textContentReducer';
 
 const TextContentContainer = () => {
-  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
   const textContents = useSelector(({ textContents }) => textContents);
@@ -24,8 +22,7 @@ const TextContentContainer = () => {
           className='button button-add-text'
           type='button'
           onClick={() => {
-            dispatch(createTextContent(count));
-            setCount((prevValue) => prevValue + 1);
+            dispatch(createTextContent(textContents.length + 1));
           }}
         >
           <img className='graphics-add-text' src='/src/assets/add-text.svg' />

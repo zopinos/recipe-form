@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import IngredientList from './IngredientList';
 import { changeIngredientListTitle, createIngredient, createIngredientList, removeIngredient, removeIngredientList, updateIngredient } from '../reducers/ingredientReducer';
 
 const IngredientListContainer = () => {
-  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
   const ingredientLists = useSelector(({ ingredientLists }) => ingredientLists);
@@ -27,8 +25,7 @@ const IngredientListContainer = () => {
           className='button button-add-list'
           type='button'
           onClick={() => {
-            dispatch(createIngredientList(count));
-            setCount((prevValue) => prevValue + 1);
+            dispatch(createIngredientList(ingredientLists.length + 1));
           }}
         >
           <img className='graphics-add-list' src='/src/assets/add-list.svg' />

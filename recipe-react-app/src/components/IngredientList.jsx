@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Ingredient from './Ingredient';
 import { EditableHeader2 } from './AutoResizeTextarea';
 import ItemRemoveButton from './ItemRemoveButton';
@@ -11,8 +10,6 @@ const IngredientList = ({
   handleIngredientRemove,
   handleIngredientUpdate
 }) => {
-  const [count, setCount] = useState(1);
-
   const ingredients = ingredientList.ingredients;
 
   const handleTitleChange = (event) => {
@@ -24,7 +21,7 @@ const IngredientList = ({
       <ItemRemoveButton handleDelete={handleDelete} />
       <EditableHeader2 replacedValue={ingredientList.title} placeholder={'Ainesosat'} onChange={handleTitleChange} />
       <div className='ingredient-table'>
-        {ingredients.map(ingredient =>
+        {ingredients.map(ingredient => 
           <Ingredient
             key={ingredient.id}
             ingredient={ingredient}
@@ -38,8 +35,7 @@ const IngredientList = ({
         className='button button-add-ingredient'
         type='button'
         onClick={() => {
-          handleIngredientAdd(ingredientList.id, count);
-          setCount((prevValue) => prevValue + 1);
+          handleIngredientAdd(ingredientList.id, ingredients.length + 1);
         }}
       >
         <img className='graphics-add-ingredient' src='/src/assets/add-ingredient.svg' />
