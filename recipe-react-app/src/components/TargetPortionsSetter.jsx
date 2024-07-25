@@ -29,7 +29,7 @@ const TargetPortionsSetter = () => {
 
   return (
     <div>
-      <div style={hideWhenVisible}>
+      <div style={hideWhenVisible} className='hidden-target-portions-setter'>
         <button className='button button-text' onClick={toggleVisibility}>
           <span>Lisää annosmäärä</span>
         </button>
