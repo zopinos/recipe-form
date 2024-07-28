@@ -22,10 +22,10 @@ const TextContentContainer = () => {
           className='button button-add-text'
           type='button'
           onClick={() => {
-            dispatch(createTextContent(textContents.length + 1));
+            dispatch(createTextContent());
           }}
         >
-          <img className='graphics-add-text' src='/src/assets/add-text.svg' />
+          <img className='graphics-add-text' src='/src/assets/add-text.svg' draggable='false' />
         </button>
       </div>
     </div>

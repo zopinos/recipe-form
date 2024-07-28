@@ -15,7 +15,7 @@ const IngredientListContainer = () => {
           ingredientList={ingredientList}
           handleDelete={() => dispatch(removeIngredientList(ingredientList.id))}
           handleUpdate={(title) => dispatch(changeIngredientListTitle({ id: ingredientList.id, title}))}
-          handleIngredientAdd={(listID, ingredientID) => dispatch(createIngredient({ listID, ingredientID }))}
+          handleIngredientAdd={(listID) => dispatch(createIngredient({ listID }))}
           handleIngredientRemove={(listID, ingredientID) => dispatch(removeIngredient({ listID, ingredientID }))}
           handleIngredientUpdate={(listID, ingredientID, name, amount) => dispatch(updateIngredient({ listID, ingredientID, name, amount }))}
         />
@@ -25,10 +25,10 @@ const IngredientListContainer = () => {
           className='button button-add-list'
           type='button'
           onClick={() => {
-            dispatch(createIngredientList(ingredientLists.length + 1));
+            dispatch(createIngredientList());
           }}
         >
-          <img className='graphics-add-list' src='/src/assets/add-list.svg' />
+          <img className='graphics-add-list' src='/src/assets/add-list.svg' draggable='false' />
         </button>
       </div>
     </div>

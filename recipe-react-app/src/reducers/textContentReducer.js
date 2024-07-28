@@ -13,11 +13,13 @@ const textContentSlice = createSlice({
     setTextContent(state, action) {
       return action.payload;
     },
-    createTextContent(state, action) {
-      const nextID = action.payload;
-      state.push({
-        id: nextID
-      });
+    createTextContent(state) {
+      return state
+        .concat({})
+        .map((textContent, idx) => {
+          return {
+            ...textContent, id: idx
+          };});
     },
     removeTextContent(state, action) {
       const id = action.payload;

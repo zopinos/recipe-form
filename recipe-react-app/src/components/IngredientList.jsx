@@ -35,10 +35,10 @@ const IngredientList = ({
         className='button button-add-ingredient'
         type='button'
         onClick={() => {
-          handleIngredientAdd(ingredientList.id, ingredients.length + 1);
+          handleIngredientAdd(ingredientList.id);
         }}
       >
-        <img className='graphics-add-ingredient' src='/src/assets/add-ingredient.svg' />
+        <img className='graphics-add-ingredient' src='/src/assets/add-ingredient.svg' draggable='false' />
       </button>
     </div>
   );

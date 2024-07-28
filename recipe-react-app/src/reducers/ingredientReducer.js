@@ -15,12 +15,15 @@ const ingredientSlice = createSlice({
     setIngredientLists(state, action) {
       return action.payload;
     },
-    createIngredientList(state, action) {
-      const nextID = action.payload;
-      state.push({
-        id: nextID,
-        ingredients: [{ id: 0 }]
-      });
+    createIngredientList(state) {
+      return state
+        .concat({
+          ingredients: [{ id: 0 }]
+        })
+        .map((list, idx) => {
+          return {
+            ...list, id: idx
+          };});
     },
     removeIngredientList(state, action) {
       const id = action.payload;
@@ -39,13 +42,19 @@ const ingredientSlice = createSlice({
       return state.map(ingredientList => ingredientList.id !== id ? ingredientList : changedIngredientList);
     },
     createIngredient(state, action) {
-      const { listID, ingredientID } = action.payload;
+      const { listID } = action.payload;
 
       const ingredientListToChange = state.find(ingredientList => listID === ingredientList.id);
 
       const changedIngredientList = {
         ...ingredientListToChange,
-        ingredients: ingredientListToChange.ingredients.concat({ id: ingredientID })
+        ingredients: ingredientListToChange.ingredients
+          .concat({})
+          .map((ingredient, idx) => {
+            return {
+              ...ingredient, id: idx
+            };
+          })
       };
 
       return state.map(ingredientList =>

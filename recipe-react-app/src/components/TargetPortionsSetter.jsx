@@ -30,7 +30,7 @@ const TargetPortionsSetter = () => {
   return (
     <div>
       <div style={hideWhenVisible} className='hidden-target-portions-setter'>
-        <button className='button button-text' onClick={toggleVisibility}>
+        <button className='button-text' onClick={toggleVisibility}>
           <span>Lisää annosmäärä</span>
         </button>
       </div>
@@ -39,7 +39,7 @@ const TargetPortionsSetter = () => {
           <input id='portions-input' type='text' inputMode="numeric" value={targetPortions.portions} onChange={handleInputUpdate} min={1} maxLength={2} />
           <span id='portions-text'>annosta</span>
           <button className="button button-delete" type="button" onClick={toggleVisibility}>
-            <img className='graphics-remove-ingredient' src='/src/assets/remove-ingredient-2.svg' />
+            <img className='graphics-remove-ingredient' src='/src/assets/remove-ingredient-2.svg' draggable='false' />
           </button>
         </div>
       </div>

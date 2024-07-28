@@ -44,7 +44,7 @@ function App() {
       <IngredientListContainer />
       <TextContentContainer />
       <div className='save-load-container'>
-        <button className='button button-text' type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, portions, ingredients, textContents });}}>
+        <button className='button-text' type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, portions, ingredients, textContents });}}>
           <span>Tallenna resepti</span>
         </button>
         <FileInput handleFile={handleStateImport} />
