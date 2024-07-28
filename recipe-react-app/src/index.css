@@ -210,6 +210,10 @@ input[type="file"] {
 .save-load-container {
   display: flex;
   gap: 10px;
+  margin-top: 20px;
+}
+
+.recipe-view-control {
   margin-top: 70px;
 }
 
