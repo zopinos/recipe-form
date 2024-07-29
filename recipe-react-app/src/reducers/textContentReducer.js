@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v1 as uuidv1 } from 'uuid';
 
 const initialState = [
   {
@@ -14,12 +15,7 @@ const textContentSlice = createSlice({
       return action.payload;
     },
     createTextContent(state) {
-      return state
-        .concat({})
-        .map((textContent, idx) => {
-          return {
-            ...textContent, id: idx
-          };});
+      return state.concat({ id: uuidv1() });
     },
     removeTextContent(state, action) {
       const id = action.payload;

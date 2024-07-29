@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { finnishNumberFormat } from '../util/constants';
+import { v1 as uuidv1 } from 'uuid';
 
 const initialState = [
   {
@@ -18,21 +19,13 @@ const ingredientSlice = createSlice({
     createIngredientList(state) {
       return state
         .concat({
+          id: uuidv1(),
           ingredients: [{ id: 0 }]
-        })
-        .map((list, idx) => {
-          return {
-            ...list, id: idx
-          };});
+        });
     },
     removeIngredientList(state, action) {
       const id = action.payload;
-      return state
-        .filter(ingredientList => id !== ingredientList.id)
-        .map((list, idx) => {
-          return {
-            ...list, id: idx
-          };});
+      return state.filter(ingredientList => id !== ingredientList.id);
     },
     changeIngredientListTitle(state, action) {
       const { id, title } = action.payload;
@@ -53,13 +46,7 @@ const ingredientSlice = createSlice({
 
       const changedIngredientList = {
         ...ingredientListToChange,
-        ingredients: ingredientListToChange.ingredients
-          .concat({})
-          .map((ingredient, idx) => {
-            return {
-              ...ingredient, id: idx
-            };
-          })
+        ingredients: ingredientListToChange.ingredients.concat({ id: uuidv1() })
       };
 
       return state.map(ingredientList =>
@@ -71,13 +58,9 @@ const ingredientSlice = createSlice({
       return state.map(ingredientList =>
         ingredientList.id !== listID
           ? ingredientList
-          : { ...ingredientList,
-            ingredients: ingredientList.ingredients
-              .filter(ingredient => ingredientID !== ingredient.id)
-              .map((ingredient, idx) => {
-                return {
-                  ...ingredient, id: idx
-                };})
+          : {
+            ...ingredientList,
+            ingredients: ingredientList.ingredients.filter(ingredient => ingredientID !== ingredient.id)
           }
       );
     },
