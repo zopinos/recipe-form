@@ -38,15 +38,15 @@ function App() {
     <div className="container">
       {!recipeView && <EditView />}
       {recipeView && <RecipeView />}
-      <div className='recipe-view-control'>
-        <input type='checkbox' checked={recipeView} onChange={handleCheckboxChange} />
-        <span>Katselutila</span>
-      </div>
       <div className='save-load-container'>
         <button className='button-text' type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, portions, ingredients, textContents });}}>
           <span>Tallenna resepti</span>
         </button>
         <FileInput handleFile={handleStateImport} />
+        <button className='button-text' onClick={() => handleCheckboxChange()}>
+          <span>Katselutila</span>
+          <input type='checkbox' checked={recipeView} onChange={() => handleCheckboxChange()} />
+        </button>
       </div>
     </div>
   );

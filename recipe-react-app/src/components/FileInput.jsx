@@ -20,8 +20,16 @@ const FileInput = ({ handleFile }) => {
 
   return (
     <div>
-      <label className="button-text" htmlFor='button-import' ><span>Avaa resepti</span></label>
-      <input type="file" id='button-import' accept=".json" onChange={handleFileChange} onClick={(event) => event.target.value = null} />
+      <label className="button-text" htmlFor='button-import' >
+        <span>Avaa resepti</span>
+      </label>
+      <input
+        type="file"
+        id='button-import'
+        accept=".json"
+        onChange={handleFileChange}
+        onClick={(event) => event.target.value = null}
+      />
     </div>
   );
 };

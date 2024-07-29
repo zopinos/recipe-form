@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import TextWithLineBreaks from './TextWithLineBreaks';
 
 const RecipeView = () => {
   const title = useSelector(({ title }) => title);
@@ -20,8 +20,8 @@ const RecipeView = () => {
             <tbody>
               {ingredientList.ingredients.map(ingredient =>
                 <tr key={ingredient.id}>
-                  <td className='table-ingredient-amount'>{ingredient.amount}</td>
-                  <td className='table-ingredient-name'>{ingredient.name}</td>
+                  <td className='table-ingredient-amount'>{TextWithLineBreaks(ingredient.amount)}</td>
+                  <td className='table-ingredient-name'>{TextWithLineBreaks(ingredient.name)}</td>
                 </tr>
               )}
             </tbody>
@@ -32,12 +32,7 @@ const RecipeView = () => {
         <div key={textContent.id}>
           <h2>{textContent.title}</h2>
           <p>
-            {textContent.text && textContent.text.split('\n').map((text, index) => (
-              <Fragment key={index}>
-                {text}
-                <br />
-              </Fragment>
-            ))}
+            {TextWithLineBreaks(textContent.text)}
           </p>
         </div>
       )}

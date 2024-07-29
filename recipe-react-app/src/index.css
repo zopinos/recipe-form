@@ -37,19 +37,29 @@ h1 {
   line-height: 1.2;
   margin-top: 70px;
   margin-bottom: 0;
+  font-size: 36px;
 }
 
 h2 {
   margin-top: 60px;
-  font-size: 1em;
+  font-size: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 caption {
   text-align: left;
 }
 
+th,
 td {
-  padding: 4px 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  padding: 8px 10px;
 }
 
 .portions {
@@ -57,7 +67,15 @@ td {
 }
 
 .table-ingredient-amount {
-  text-align: end;
+  align-content: flex-start;
+  text-align: right;
+  width: 20%;
+}
+
+.table-ingredient-name {
+  align-content: flex-start;
+  text-align: left;
+  width: calc(100% - 20%);
 }
 
 input,
@@ -75,6 +93,11 @@ input[type="file"] {
   font-style: normal;
 
   display: none;
+}
+
+input[type="checkbox"] {
+  width: 19px;
+  cursor: pointer;
 }
 
 #portions-text {
@@ -228,11 +251,7 @@ input[type="file"] {
 .save-load-container {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
-}
-
-.recipe-view-control {
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 @media (min-width: 500px) {
