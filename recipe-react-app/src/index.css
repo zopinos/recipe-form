@@ -215,7 +215,7 @@ input[type="checkbox"] {
   outline: none;
   border: none;
 
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 10px 13px;
   margin-top: 0;
 
@@ -235,6 +235,10 @@ input[type="checkbox"] {
 
 .button-text span {
   color: white;
+}
+
+.pressed {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .container-remove-item {

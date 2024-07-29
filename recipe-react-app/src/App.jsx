@@ -13,7 +13,7 @@ import EditView from './components/EditView';
 import RecipeView from './components/RecipeView';
 
 function App() {
-  const [ recipeView, setRecipeView ] = useState(false);
+  const [recipeView, setRecipeView] = useState(false);
 
   const title = useSelector(({ title }) => title);
   const portions = useSelector(({ targetPortions }) => targetPortions);
@@ -30,7 +30,7 @@ function App() {
     dispatch(setTextContent(textContents));
   };
 
-  const handleCheckboxChange = () => {
+  const handleToggle = () => {
     setRecipeView(!recipeView);
   };
 
@@ -43,9 +43,8 @@ function App() {
           <span>Tallenna resepti</span>
         </button>
         <FileInput handleFile={handleStateImport} />
-        <button className='button-text' onClick={() => handleCheckboxChange()}>
+        <button className={recipeView ? 'button-text pressed' : 'button-text'} onClick={() => handleToggle()}>
           <span>Katselutila</span>
-          <input type='checkbox' checked={recipeView} onChange={() => handleCheckboxChange()} />
         </button>
       </div>
     </div>
