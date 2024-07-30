@@ -241,6 +241,11 @@ input[type="checkbox"] {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+.pressed:hover,
+.pressed:active {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
 .container-remove-item {
   display: flex;
   justify-content: end;
