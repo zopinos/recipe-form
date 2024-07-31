@@ -3,37 +3,37 @@ import { TextInput, StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
-const TitleInput = ({ style }) => {
-  const [title, setTitle] = useState('');
+const TitleInput = ({ style, placeholder }) => {
+  const [text, setText] = useState('');
 
   return (
     <TextInput
       editable
       multiline
-      onChangeText={text => setTitle(text)}
-      value={title}
-      placeholder='Otsikko'
-      style={[style, styles.titleInput]}
+      onChangeText={text => setText(text)}
+      value={text}
+      placeholder={placeholder}
+      style={[style, styles.textInput]}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  titleInput: {
+  textInput: {
     width: '100%',
     paddingVertical: 15,
     paddingHorizontal: 20,
     marginTop: 70,
 
     fontFamily: 'SourceSerif4-Regular',
-    fontSize: theme.fontSizes.heading,
+    fontSize: theme.fontSizes.body,
     fontWeight: 'normal',
     textAlignVertical: 'top',
 
     backgroundColor: 'rgba(0, 0, 0, 0.02)',
     borderRadius: 10,
     border: 'none',
-  }
+  },
 });
 
 export default TitleInput;

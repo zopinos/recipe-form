@@ -1,20 +1,32 @@
+import { useCallback } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 
 import TitleInput from './TextInputs/TitleInput.jsx';
 
 import theme from '../theme.js';
+
+SplashScreen.preventAutoHideAsync();
 
 const Main = () => {
   const [fontsLoaded] = useFonts({
     'SourceSerif4-Regular': require('../../assets/fonts/SourceSerif4-Regular.ttf'),
   });
 
-  if (!fontsLoaded) return <Text>Loading...</Text>;
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) return null;
 
   return (
-    <View style={styles.container}>
-      <TitleInput style={styles.titleInput} />
+    <View
+      style={styles.container}
+      onLayout={onLayoutRootView}>
+      <TitleInput />
       <Text>Mooi jeipppiii</Text>
     </View>
   );
@@ -27,20 +39,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     flexShrink: 1,
     backgroundColor: theme.colors.primary,
-  },
-  titleInput: {
-    fontFamily: 'SourceSerif4-Regular',
-    fontSize: theme.fontSizes.heading,
-    fontWeight: 'normal',
-    fontStyle: 'normal',
-
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    marginTop: 70,
-
-    backgroundColor: 'rgba(0, 0, 0, 0.02)',
-    borderRadius: 10,
-    border: 'none',
   },
   testText: {
     fontFamily: 'SourceSerif4-Regular'
