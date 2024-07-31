@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 70,
 
-    fontFamily: 'SourceSerif4-Regular',
+    fontFamily: 'SourceSerif4-Bold',
     fontSize: theme.fontSizes.heading,
     fontWeight: 'normal',
     textAlignVertical: 'top',

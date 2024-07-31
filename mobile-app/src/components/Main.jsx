@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -12,6 +12,7 @@ SplashScreen.preventAutoHideAsync();
 const Main = () => {
   const [fontsLoaded] = useFonts({
     'SourceSerif4-Regular': require('../../assets/fonts/SourceSerif4-Regular.ttf'),
+    'SourceSerif4-Bold': require('../../assets/fonts/SourceSerif4-Bold.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -27,7 +28,6 @@ const Main = () => {
       style={styles.container}
       onLayout={onLayoutRootView}>
       <TitleInput />
-      <Text>Mooi jeipppiii</Text>
     </View>
   );
 };
