@@ -6,6 +6,7 @@ const theme = {
   },
   fontSizes: {
     body: 14,
+    heading: 36,
     subheading: 16,
   },
   fonts: {

@@ -13,7 +13,6 @@ const Textarea = styled.textarea`
 
 const AutoResizeTextarea = ({ className, placeholder, replacedValue, onChange }) => {
   const [text, setText] = useState(replacedValue);
-  /* const [selection, setSelection] = useState(); */
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -23,14 +22,6 @@ const AutoResizeTextarea = ({ className, placeholder, replacedValue, onChange })
   useEffect(() => {
     setText(replacedValue);
   }, [replacedValue]);
-
-  /* useEffect(() => {
-    document.addEventListener('selectionchange', () => {
-      const activeSelection = document.getSelection();
-      const selectionToText = activeSelection?.toString();
-      setSelection(selectionToText);
-    });
-  }, []); */
 
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
