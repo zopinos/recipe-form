@@ -36,8 +36,7 @@ function App() {
 
   return (
     <div className="container">
-      {!recipeView && <EditView />}
-      {recipeView && <RecipeView />}
+      {recipeView ? <RecipeView /> : <EditView />}
       <div className='save-load-container'>
         <button className='button-text' type='button' onClick={() => {exportObjectAsJSON('my-new-cool-recipe.json', { title, portions, ingredients, textContents });}}>
           <span>Tallenna resepti</span>
