@@ -4,10 +4,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import Main from './src/components/Main';
 
 import titleReducer from './src/reducers/titleReducer';
+import textContentReducer from './src/reducers/textContentReducer';
 
 const store = configureStore({
   reducer: {
     title: titleReducer,
+    textContents: textContentReducer,
   }
 });
 
