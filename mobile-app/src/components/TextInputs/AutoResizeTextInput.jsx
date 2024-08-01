@@ -1,19 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
-const TitleInput = ({ style, placeholder }) => {
-  const [text, setText] = useState('');
+const AutoResizeTextInput = ({ style = styles.textInput, placeholder, replacedValue, onChange }) => {
+  const [value, setValue] = useState('');
+
+  useEffect(() => {
+    setValue(replacedValue);
+  }, [replacedValue]);
+
+  const handleChange = (text) => {
+    if (onChange) {
+      onChange(text);
+    }
+    setValue(text);
+  };
 
   return (
     <TextInput
       editable
       multiline
-      onChangeText={text => setText(text)}
-      value={text}
+      onChangeText={text => handleChange(text)}
+      value={value}
       placeholder={placeholder}
-      style={[style, styles.textInput]}
+      style={[style]}
+      maxLength={9999}
     />
   );
 };
@@ -36,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TitleInput;
+export default AutoResizeTextInput;

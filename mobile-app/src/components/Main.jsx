@@ -1,9 +1,10 @@
-import { useCallback } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useCallback, useState } from 'react';
+import { StyleSheet, View, Button } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
-import TitleInput from './TextInputs/TitleInput.jsx';
+import EditView from './EditView.jsx';
+import RecipeView from './RecipeView.jsx';
 
 import theme from '../theme.js';
 
@@ -15,6 +16,8 @@ const Main = () => {
     'SourceSerif4-Bold': require('../../assets/fonts/SourceSerif4-Bold.ttf'),
   });
 
+  const [recipeView, setRecipeView] = useState(false);
+
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
@@ -23,11 +26,17 @@ const Main = () => {
 
   if (!fontsLoaded) return null;
 
+  const handleToggle = () => {
+    setRecipeView(!recipeView);
+  };
+
   return (
     <View
       style={styles.container}
-      onLayout={onLayoutRootView}>
-      <TitleInput />
+      onLayout={onLayoutRootView}
+    >
+      {recipeView ? <RecipeView /> : <EditView />}
+      <Button title='Katselu tila' onPress={() => handleToggle()} />
     </View>
   );
 };

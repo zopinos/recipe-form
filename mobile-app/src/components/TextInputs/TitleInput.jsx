@@ -1,19 +1,27 @@
-import { useState } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { StyleSheet } from 'react-native';
+
+import AutoResizeTextInput from './AutoResizeTextInput';
+
+import { setTitle } from '../../reducers/titleReducer';
 
 import theme from '../../theme';
 
-const TitleInput = ({ style }) => {
-  const [title, setTitle] = useState('');
+const TitleInput = () => {
+  const title = useSelector(({ title }) => title);
+
+  const dispatch = useDispatch();
+
+  const handleTitleChange = (text) => {
+    dispatch(setTitle(text));
+  };
 
   return (
-    <TextInput
-      editable
-      multiline
-      onChangeText={text => setTitle(text)}
-      value={title}
-      placeholder='Otsikko'
-      style={[style, styles.titleInput]}
+    <AutoResizeTextInput
+      style={styles.titleInput}
+      placeholder={'Otsikko'}
+      replacedValue={title}
+      onChange={handleTitleChange}
     />
   );
 };
