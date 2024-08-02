@@ -23,7 +23,7 @@ const Main = () => {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
-
+  
   if (!fontsLoaded) return null;
 
   const handleToggle = () => {

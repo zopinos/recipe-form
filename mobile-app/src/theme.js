@@ -6,9 +6,9 @@ const theme = {
     secondary: 'rgba(0, 0, 0, 0.03)',
   },
   fontSizes: {
-    body: 14,
+    body: 18,
     heading: 36,
-    subheading: 16,
+    subheading: 20,
   },
   fonts: {
     main: 'System',
