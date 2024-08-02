@@ -1,3 +1,4 @@
+import 'react-native-get-random-values';
 import { createSlice } from '@reduxjs/toolkit';
 import { v1 as uuidv1 } from 'uuid';
 

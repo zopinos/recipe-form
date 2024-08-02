@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     paddingHorizontal: 20,
-    marginTop: 70,
+    marginTop: 10,
 
     fontFamily: 'SourceSerif4-Regular',
     fontSize: theme.fontSizes.body,
     fontWeight: 'normal',
     textAlignVertical: 'top',
 
-    backgroundColor: 'rgba(0, 0, 0, 0.02)',
-    borderRadius: 10,
+    backgroundColor: theme.colors.secondary,
+    borderRadius: theme.roundness.textField,
     border: 'none',
   },
 });

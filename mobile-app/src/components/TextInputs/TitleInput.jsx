@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     textAlignVertical: 'top',
 
-    backgroundColor: 'rgba(0, 0, 0, 0.02)',
-    borderRadius: 10,
+    backgroundColor: theme.colors.secondary,
+    borderRadius: theme.roundness.textField,
     border: 'none',
   }
 });
