@@ -1,6 +1,6 @@
 import AutoResizeTextInput from '../TextInputs/AutoResizeTextInput';
 import SubheaderInput from '../TextInputs/SubheaderInput';
-import ItemRemoveButton from '../ItemRemoveButton';
+import ItemRemoveButton from '../Buttons/ItemRemoveButton';
 import { View, StyleSheet } from 'react-native';
 
 const TextContent = ({textContent, handleDelete, handleUpdate }) => {

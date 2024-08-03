@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import TextContent from './TextContent';
 import { createTextContent, removeTextContent, updateTextContent } from '../../reducers/textContentReducer';
 import { View, Pressable } from 'react-native';
-import { AddText } from '../ButtonGraphics';
-import CustomButton from '../CustomButton';
+import { AddText } from '../Buttons/ButtonGraphics';
+import CustomButton from '../Buttons/CustomButton';
 
 const TextContentContainer = () => {
   const dispatch = useDispatch();

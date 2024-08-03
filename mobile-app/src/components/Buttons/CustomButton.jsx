@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet } from 'react-native';
-import theme from '../theme';
+import theme from '../../theme';
 
 const CustomButton = (props) => {
   const buttonStyles = ({pressed}) => [styles.button, pressed ? styles.pressed : styles.notPressed];

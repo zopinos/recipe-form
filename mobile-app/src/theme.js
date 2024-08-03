@@ -4,6 +4,9 @@ const theme = {
     textSecondary: '#586069',
     primary: '#FFF2C5',
     secondary: 'rgba(0, 0, 0, 0.03)',
+    textButton: 'rgba(0, 0, 0, 0.55)',
+    textButtonPressed: 'rgba(0, 0, 0, 0.65)',
+    buttonText: 'white'
   },
   fontSizes: {
     body: 18,
@@ -18,7 +21,8 @@ const theme = {
     bold: '700',
   },
   roundness: {
-    textField: 15
+    textField: 15,
+    buttons: 15
   },
   opacity: {
     initial: 0.6,

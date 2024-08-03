@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { StyleSheet, ScrollView, Button } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -7,6 +7,7 @@ import EditView from './EditView.jsx';
 import RecipeView from './RecipeView.jsx';
 
 import theme from '../theme.js';
+import TextButton from './Buttons/TextButton.jsx';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -36,7 +37,7 @@ const Main = () => {
       onLayout={onLayoutRootView}
     >
       {recipeView ? <RecipeView /> : <EditView />}
-      <Button title='Katselu tila' onPress={() => handleToggle()} />
+      <TextButton text='Katselu tila' onPress={() => handleToggle()} />
     </ScrollView>
   );
 };
