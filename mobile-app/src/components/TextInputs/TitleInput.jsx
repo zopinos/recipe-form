@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     paddingHorizontal: 20,
-    marginTop: 70,
+    marginTop: 120,
 
     fontFamily: 'SourceSerif4-Bold',
     fontSize: theme.fontSizes.heading,

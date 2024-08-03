@@ -15,7 +15,7 @@ const TextButton = ({ onPress, text }) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: '33%',
+    width: '50%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: theme.roundness.buttons,
@@ -32,7 +32,13 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.textButtonPressed
   },
   text: {
-    color: theme.colors.buttonText
+    color: theme.colors.buttonText,
+    fontFamily: 'OpenSans-Regular',
+    fontWeight: '700',
+    fontStyle: 'normal',
+    fontSize: theme.fontSizes.body,
+    letterSpacing: 1,
+    lineHeight: 30,
   }
 });
 

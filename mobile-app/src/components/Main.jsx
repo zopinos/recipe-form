@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -17,6 +17,7 @@ const Main = () => {
   const [fontsLoaded] = useFonts({
     'SourceSerif4-Regular': require('../../assets/fonts/SourceSerif4-Regular.ttf'),
     'SourceSerif4-Bold': require('../../assets/fonts/SourceSerif4-Bold.ttf'),
+    'OpenSans-Regular': require('../../assets/fonts/OpenSans-Regular.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -37,7 +38,9 @@ const Main = () => {
       onLayout={onLayoutRootView}
     >
       {recipeView ? <RecipeView /> : <EditView />}
-      <TextButton text='Katselu tila' onPress={() => handleToggle()} />
+      <View style={styles.containerViewMode}>
+        <TextButton text='Katselu tila' onPress={() => handleToggle()} />
+      </View>
     </ScrollView>
   );
 };
@@ -51,8 +54,8 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     backgroundColor: theme.colors.primary,
   },
-  testText: {
-    fontFamily: 'SourceSerif4-Regular'
+  containerViewMode: {
+    marginBottom: 50
   }
 });
 
