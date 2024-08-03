@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
+import { StyleSheet, ScrollView, View, StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -33,15 +33,19 @@ const Main = () => {
   };
 
   return (
-    <ScrollView
-      style={styles.container}
-      onLayout={onLayoutRootView}
-    >
-      {recipeView ? <RecipeView /> : <EditView />}
-      <View style={styles.containerViewMode}>
-        <TextButton text='Katselu tila' onPress={() => handleToggle()} />
-      </View>
-    </ScrollView>
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <StatusBar
+        backgroundColor={theme.colors.tertiary}
+      />
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}>
+        {recipeView ? <RecipeView /> : <EditView />}
+        <View style={styles.containerViewMode}>
+          <TextButton text='Katselu tila' onPress={() => handleToggle()} />
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 

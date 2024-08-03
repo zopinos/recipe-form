@@ -4,6 +4,7 @@ const theme = {
     textSecondary: '#586069',
     primary: '#FFF2C5',
     secondary: 'rgba(0, 0, 0, 0.03)',
+    tertiary: '#423f35',
     textButton: 'rgba(0, 0, 0, 0.55)',
     textButtonPressed: 'rgba(0, 0, 0, 0.65)',
     buttonText: 'white'
