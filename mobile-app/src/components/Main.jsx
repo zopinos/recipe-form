@@ -35,14 +35,15 @@ const Main = () => {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <StatusBar
-        backgroundColor={theme.colors.tertiary}
+        backgroundColor={theme.colors.primary}
+        barStyle={'dark-content'}
       />
       <ScrollView
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}>
         {recipeView ? <RecipeView /> : <EditView />}
         <View style={styles.containerViewMode}>
-          <TextButton text='Katselu tila' onPress={() => handleToggle()} />
+          <TextButton text='Katselu tila' onPress={() => handleToggle()} togglable={true} />
         </View>
       </ScrollView>
     </View>

@@ -7,6 +7,7 @@ const theme = {
     tertiary: '#423f35',
     textButton: 'rgba(0, 0, 0, 0.55)',
     textButtonPressed: 'rgba(0, 0, 0, 0.65)',
+    toggled: 'rgba(0, 0, 0, 0.80)',
     buttonText: 'white'
   },
   fontSizes: {

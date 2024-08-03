@@ -1,11 +1,24 @@
 import { Pressable, Text, StyleSheet } from 'react-native';
 import theme from '../../theme';
+import { useState } from 'react';
 
-const TextButton = ({ onPress, text }) => {
-  const buttonStyles = ({pressed}) => [styles.button, pressed ? styles.pressed : styles.notPressed];
+const TextButton = ({ onPress, text, togglable = false }) => {
+  const [toggled, setToggled] = useState(false);
+
+  const buttonStyles = ({pressed}) => [
+    styles.button,
+    toggled ? (pressed ? styles.pressed : styles.toggleOn) : (pressed ? styles.pressed : styles.notPressed)
+  ];
+
+  const handlePress = () => {
+    if (togglable) {
+      setToggled(!toggled);
+    }
+    onPress();
+  };
 
   return (
-    <Pressable style={buttonStyles} onPress={onPress}>
+    <Pressable style={buttonStyles} onPress={() => handlePress()}>
       <Text style={styles.text}>
         {text}
       </Text>
@@ -30,6 +43,10 @@ const styles = StyleSheet.create({
   pressed: {
     color: theme.colors.textButtonPressed,
     backgroundColor: theme.colors.textButtonPressed
+  },
+  toggleOn: {
+    color: theme.colors.toggled,
+    backgroundColor: theme.colors.toggled,
   },
   text: {
     color: theme.colors.buttonText,
