@@ -16,6 +16,7 @@ const textContentSlice = createSlice({
       return action.payload;
     },
     createTextContent(state) {
+      if (state.length >= 5) return state;
       return state.concat({ id: uuidv1() });
     },
     removeTextContent(state, action) {

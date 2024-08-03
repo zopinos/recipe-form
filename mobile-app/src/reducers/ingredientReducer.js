@@ -17,6 +17,7 @@ const ingredientSlice = createSlice({
       return action.payload;
     },
     createIngredientList(state) {
+      if (state.length >= 5) return state;
       return state
         .concat({
           id: uuidv1(),
@@ -43,6 +44,8 @@ const ingredientSlice = createSlice({
       const { listID } = action.payload;
 
       const ingredientListToChange = state.find(ingredientList => listID === ingredientList.id);
+
+      if (ingredientListToChange.ingredients.length >= 100) return state;
 
       const changedIngredientList = {
         ...ingredientListToChange,
