@@ -1,12 +1,13 @@
 import { Pressable, View } from 'react-native';
 import { RemoveItem } from './ButtonGraphics';
+import CustomButton from './CustomButton';
 
 const ItemRemoveButton = ({ handleDelete }) => {
   return (
     <View style={{ alignItems: 'flex-end'}}>
-      <Pressable onPress={handleDelete}>
+      <CustomButton onPress={handleDelete}>
         <RemoveItem />
-      </Pressable>
+      </CustomButton>
     </View>
   );
 };

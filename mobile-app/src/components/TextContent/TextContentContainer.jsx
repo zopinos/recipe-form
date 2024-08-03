@@ -3,6 +3,7 @@ import TextContent from './TextContent';
 import { createTextContent, removeTextContent, updateTextContent } from '../../reducers/textContentReducer';
 import { View, Pressable } from 'react-native';
 import { AddText } from '../ButtonGraphics';
+import CustomButton from '../CustomButton';
 
 const TextContentContainer = () => {
   const dispatch = useDispatch();
@@ -20,11 +21,11 @@ const TextContentContainer = () => {
         />
       )}
       <View style={{ alignItems: 'center', margin: 30}}>
-        <Pressable onPress={() => {
+        <CustomButton onPress={() => {
           dispatch(createTextContent());
         }}>
           <AddText />
-        </Pressable>
+        </CustomButton>
       </View>
     </View>
   );

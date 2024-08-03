@@ -17,7 +17,7 @@ const SubheaderInput = ({ replacedValue, placeholder, onChange }) => {
 
 const styles = StyleSheet.create({
   subheaderInput: {
-    width: '100%',
+    width: '60%',
     paddingVertical: 15,
     paddingHorizontal: 20,
     marginTop: 10,

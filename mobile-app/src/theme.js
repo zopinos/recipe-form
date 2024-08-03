@@ -20,6 +20,10 @@ const theme = {
   roundness: {
     textField: 15
   },
+  opacity: {
+    initial: 0.6,
+    pressed: 0.9,
+  }
 };
 
 export default theme;
