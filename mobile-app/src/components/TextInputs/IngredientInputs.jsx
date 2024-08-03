@@ -6,6 +6,7 @@ export const IngredientAmountInput = ({ replacedValue, placeholder, onChange }) 
   return (
     <AutoResizeTextInput
       style={styles.amount}
+      autoCapitalize={'none'}
       replacedValue={replacedValue}
       placeholder={placeholder}
       onChange={onChange}
@@ -17,6 +18,7 @@ export const IngredientNameInput = ({ replacedValue, placeholder, onChange }) =>
   return (
     <AutoResizeTextInput
       style={styles.name}
+      autoCapitalize={'none'}
       replacedValue={replacedValue}
       placeholder={placeholder}
       onChange={onChange}
@@ -26,10 +28,9 @@ export const IngredientNameInput = ({ replacedValue, placeholder, onChange }) =>
 
 const styles = StyleSheet.create({
   amount: {
-    width: '100%',
-    paddingVertical: 15,
+    width: '30%',
+    paddingVertical: 10,
     paddingHorizontal: 20,
-    marginTop: 10,
 
     fontFamily: 'SourceSerif4-Regular',
     fontSize: theme.fontSizes.body,
@@ -42,10 +43,9 @@ const styles = StyleSheet.create({
     border: 'none',
   },
   name: {
-    width: '100%',
-    paddingVertical: 15,
+    width: '57%',
+    paddingVertical: 10,
     paddingHorizontal: 20,
-    marginTop: 10,
 
     fontFamily: 'SourceSerif4-Regular',
     fontSize: theme.fontSizes.body,

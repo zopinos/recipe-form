@@ -48,7 +48,7 @@ const Main = () => {
 const styles = StyleSheet.create({
   container: {
     margin: 0,
-    paddingHorizontal: 40,
+    paddingHorizontal: 30,
     paddingVertical: 0,
     flexGrow: 1,
     flexShrink: 1,

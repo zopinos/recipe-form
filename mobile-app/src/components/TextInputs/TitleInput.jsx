@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SourceSerif4-Bold',
     fontSize: theme.fontSizes.heading,
     fontWeight: 'normal',
-    textAlignVertical: 'top',
+    textAlignVertical: 'center',
 
     backgroundColor: theme.colors.secondary,
     borderRadius: theme.roundness.textField,

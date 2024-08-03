@@ -34,11 +34,13 @@ const IngredientList = ({
           />
         )}
       </View>
-      <CustomButton
-        onPress={() => { handleIngredientAdd(ingredientList.id); }}
-      >
-        <AddIngredient />
-      </CustomButton>
+      <View style={styles.buttonAddIngredient}>
+        <CustomButton
+          onPress={() => { handleIngredientAdd(ingredientList.id); }}
+        >
+          <AddIngredient />
+        </CustomButton>
+      </View>
     </View>
   );
 };
@@ -49,6 +51,9 @@ const styles = StyleSheet.create({
   },
   ingredientTable: {
 
+  },
+  buttonAddIngredient: {
+    marginTop: 10
   }
 });
 

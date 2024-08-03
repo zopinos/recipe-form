@@ -9,9 +9,9 @@ const theme = {
     buttonText: 'white'
   },
   fontSizes: {
-    body: 18,
+    body: 16,
     heading: 36,
-    subheading: 20,
+    subheading: 18,
   },
   fonts: {
     main: 'System',

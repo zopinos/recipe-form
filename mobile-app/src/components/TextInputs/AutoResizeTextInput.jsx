@@ -3,7 +3,7 @@ import { TextInput, StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
-const AutoResizeTextInput = ({ style = styles.textInput, placeholder, replacedValue, onChange }) => {
+const AutoResizeTextInput = ({ style = styles.textInput, placeholder, replacedValue, onChange, autoCapitalize }) => {
   const [value, setValue] = useState('');
 
   useEffect(() => {
@@ -21,6 +21,10 @@ const AutoResizeTextInput = ({ style = styles.textInput, placeholder, replacedVa
     <TextInput
       editable
       multiline
+      autoCapitalize={autoCapitalize}
+      autoComplete='off'
+      autoCorrect={false}
+      cursorColor='black'
       onChangeText={text => handleChange(text)}
       value={value}
       placeholder={placeholder}
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SourceSerif4-Regular',
     fontSize: theme.fontSizes.body,
     fontWeight: 'normal',
-    textAlignVertical: 'top',
+    textAlignVertical: 'center',
 
     backgroundColor: theme.colors.secondary,
     borderRadius: theme.roundness.textField,

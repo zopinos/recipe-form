@@ -13,19 +13,26 @@ const Ingredient = ({ ingredient, listID, handleDelete, handleUpdate }) => {
   };
   
   return (
-    <View>
+    <View style={styles.ingredientRow}>
       <IngredientAmountInput replacedValue={ingredient.amount} placeholder={'määrä'} onChange={handleAmountChange} />
       <IngredientNameInput replacedValue={ingredient.name} placeholder={'nimi'} onChange={handleNameChange} />
-      <CustomButton onPress={handleDelete}>
-        <RemoveIngredient />
-      </CustomButton>
+      <View style={styles.buttonRemove}>
+        <CustomButton onPress={handleDelete}>
+          <RemoveIngredient />
+        </CustomButton>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   ingredientRow: {
-
+    marginTop: 10,
+    flexDirection: 'row',
+    gap: 5,
+  },
+  buttonRemove: {
+    alignSelf: 'center'
   }
 });
 

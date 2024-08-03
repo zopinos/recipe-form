@@ -1,10 +1,10 @@
-import { Pressable, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { RemoveItem } from './ButtonGraphics';
 import CustomButton from './CustomButton';
 
 const ItemRemoveButton = ({ handleDelete }) => {
   return (
-    <View style={{ alignItems: 'flex-end'}}>
+    <View style={styles.containerButton}>
       <CustomButton onPress={handleDelete}>
         <RemoveItem />
       </CustomButton>
@@ -12,5 +12,10 @@ const ItemRemoveButton = ({ handleDelete }) => {
   );
 };
   
+const styles = StyleSheet.create({
+  containerButton: {
+    alignItems: 'flex-end'
+  }
+});
 
 export default ItemRemoveButton;

@@ -18,14 +18,14 @@ const SubheaderInput = ({ replacedValue, placeholder, onChange }) => {
 const styles = StyleSheet.create({
   subheaderInput: {
     width: '60%',
-    paddingVertical: 15,
+    paddingVertical: 10,
     paddingHorizontal: 20,
-    marginTop: 10,
+    marginTop: 0,
 
     fontFamily: 'SourceSerif4-Regular',
     fontSize: theme.fontSizes.subheading,
     fontWeight: 'normal',
-    textAlignVertical: 'top',
+    textAlignVertical: 'center',
     textDecorationLine: 'underline',
 
     backgroundColor: theme.colors.secondary,
