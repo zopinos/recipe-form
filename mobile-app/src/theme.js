@@ -29,6 +29,11 @@ const theme = {
   opacity: {
     initial: 0.6,
     pressed: 0.9,
+  },
+  buttonSizes: {
+    normal: 40,
+    small: 31,
+    big: 60
   }
 };
 

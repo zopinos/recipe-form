@@ -25,7 +25,7 @@ const AutoResizeTextInput = ({ style = styles.textInput, placeholder, replacedVa
       autoComplete='off'
       autoCorrect={false}
       cursorColor='black'
-      onChangeText={text => handleChange(text)}
+      onChangeText={(text) => handleChange(text)}
       value={value}
       placeholder={placeholder}
       style={[style]}

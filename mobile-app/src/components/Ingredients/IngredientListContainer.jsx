@@ -43,11 +43,10 @@ const IngredientListContainer = () => {
 
 const styles = StyleSheet.create({
   containerList: {
-    marginTop: 40
+    marginTop: 35
   },
   containerAddItem: {
     alignItems: 'center',
-    marginTop: 25
   }
 });
 

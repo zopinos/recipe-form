@@ -47,7 +47,7 @@ const IngredientList = ({
 
 const styles = StyleSheet.create({
   ingredientsList: {
-    
+    marginBottom: 40
   },
   ingredientTable: {
 
