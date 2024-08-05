@@ -1,4 +1,4 @@
-import { Svg, Path } from 'react-native-svg';
+import { Svg, Path, G, Circle } from 'react-native-svg';
 import theme from '../../theme';
 
 export const RemoveItem = () => 
@@ -29,4 +29,21 @@ export const AddIngredient = () =>
 export const RemoveIngredient = () =>
   <Svg height={theme.buttonSizes.small} width={theme.buttonSizes.small} viewBox="0 0 105.2 105.2" fill='black'>
     <Path d="M52.6 0a52.6 52.6 0 1 0 0 105.2A52.6 52.6 0 0 0 52.6 0zm4.2 47.9 20.8.1a5 5 0 0 1 5 5 5 5 0 0 1-5.1 5s-39.8-.4-50.1.5a5 5 0 0 1-5.4-4.6 5 5 0 0 1 4.5-5.4c6.3-.5 19-.6 30.3-.6z"/>
+  </Svg>;
+
+export const Show = () =>
+  <Svg width={20} height={20} viewBox="-.2 -16 67.4 67.4">
+    <G style="display:inline" transform="translate(-19 -33.8)">
+      <Path style="fill:none;stroke:#fff;stroke-width:4.50001;stroke-linecap:round;stroke-linejoin:round" d="M21.3 50.8c19.4-19.6 43-19.6 62.5-.7-20.3 21.2-42.3 20.7-62.4.8"/>
+      <Circle style="fill:none;stroke:#fff;stroke-width:5.96092;stroke-linecap:round;stroke-linejoin:round" cx="52.8" cy="50.7" r="13.7"/>
+    </G>
+  </Svg>;
+
+export const Hide = () =>
+  <Svg width={20} height={20} viewBox="-.2 -16 67.4 67.4">
+    <G style="display:inline">
+      <Path style="color:#000;fill:#fff;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none" d="M52.5 33.8a47 47 0 0 0-32.8 15.4 2.3 2.3 0 0 0 0 3.2 2.3 2.3 0 0 0 .1.1 55.5 55.5 0 0 0 21 13.7l2.7-3.9a48.7 48.7 0 0 1-18.8-11.5 41.5 41.5 0 0 1 27.8-12.5c2.6 0 5.2.2 7.8.8l2.9-4c-3.6-.9-7.1-1.4-10.7-1.3Zm15.1 2.9L65 40.5a49 49 0 0 1 15.5 9.7c-9.3 9-18.7 13.4-28 13.5-1.3 0-2.7-.1-4-.3l-3 4c2.3.5 4.7.8 7.1.8 11.3 0 22.5-5.6 33-16.6a2.3 2.3 0 0 0-.1-3.1 54.6 54.6 0 0 0-17.8-11.8Z" transform="translate(-19 -33.8)"/>
+      <Path style="color:#000;fill:#fff;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none" d="M52.8 34a16.7 16.7 0 0 0-10.3 29.8L46 59c-2.4-2-3.9-5-3.9-8.3a10.7 10.7 0 0 1 16.4-9.1l3.5-4.8a16.6 16.6 0 0 0-9.2-2.8zm12.6 5.8-3.6 5A10.7 10.7 0 0 1 50 61l-3.6 5a16.7 16.7 0 0 0 19-26.3z" transform="translate(-19 -33.8)"/>
+      <Path style="fill:none;stroke:#fff;stroke-width:4.50001;stroke-linecap:round;stroke-linejoin:round" d="m35.7 71.9 30.1-41.7" transform="translate(-19 -33.8)"/>
+    </G>
   </Svg>;
