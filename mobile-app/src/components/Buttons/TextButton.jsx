@@ -2,7 +2,7 @@ import { Pressable, Text, StyleSheet } from 'react-native';
 import theme from '../../theme';
 import { useState } from 'react';
 
-const TextButton = ({ onPress, text, togglable = false }) => {
+const TextButton = ({ onPress, text, togglable = false, toggleOnChild = null, toggleOffChild = null }) => {
   const [toggled, setToggled] = useState(false);
 
   const buttonStyles = ({pressed}) => [
@@ -19,6 +19,7 @@ const TextButton = ({ onPress, text, togglable = false }) => {
 
   return (
     <Pressable style={buttonStyles} onPress={() => handlePress()}>
+      {toggled ? toggleOnChild : toggleOffChild}
       <Text style={styles.text}>
         {text}
       </Text>
@@ -29,6 +30,8 @@ const TextButton = ({ onPress, text, togglable = false }) => {
 const styles = StyleSheet.create({
   button: {
     width: '50%',
+    flexDirection: 'row',
+    gap: 10,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: theme.roundness.buttons,
@@ -50,11 +53,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: theme.colors.buttonText,
-    fontFamily: 'OpenSans-Regular',
-    fontWeight: '700',
+    fontFamily: 'OpenSans-Bold',
     fontStyle: 'normal',
     fontSize: theme.fontSizes.body,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
     lineHeight: 30,
   }
 });

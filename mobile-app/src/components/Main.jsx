@@ -8,6 +8,7 @@ import RecipeView from './RecipeView.jsx';
 
 import theme from '../theme.js';
 import TextButton from './Buttons/TextButton.jsx';
+import { Hide, Show } from './Buttons/ButtonGraphics.jsx';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -17,7 +18,9 @@ const Main = () => {
   const [fontsLoaded] = useFonts({
     'SourceSerif4-Regular': require('../../assets/fonts/SourceSerif4-Regular.ttf'),
     'SourceSerif4-Bold': require('../../assets/fonts/SourceSerif4-Bold.ttf'),
-    'OpenSans-Regular': require('../../assets/fonts/OpenSans-Regular.ttf'),
+    /* 'OpenSans-Regular': require('../../assets/fonts/OpenSans-Regular.ttf'),
+    'OpenSans-SemiBold': require('../../assets/fonts/OpenSans-SemiBold.ttf'), */
+    'OpenSans-Bold': require('../../assets/fonts/OpenSans-Bold.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -43,7 +46,13 @@ const Main = () => {
         showsVerticalScrollIndicator={false}>
         {recipeView ? <RecipeView /> : <EditView />}
         <View style={styles.containerViewMode}>
-          <TextButton text='Katselu tila' onPress={() => handleToggle()} togglable={true} />
+          <TextButton
+            text='Katselutila'
+            onPress={() => handleToggle()}
+            togglable={true}
+            toggleOnChild={<Hide />}
+            toggleOffChild={<Show />}
+          />
         </View>
       </ScrollView>
     </View>

@@ -31,8 +31,9 @@ const theme = {
     pressed: 0.9,
   },
   buttonSizes: {
+    extraSmall: 24,
+    small: 30,
     normal: 40,
-    small: 31,
     big: 60
   }
 };
