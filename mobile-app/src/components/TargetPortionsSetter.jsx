@@ -42,6 +42,7 @@ const TargetPortionsSetter = () => {
   const shown = () =>
     <View style={styles.shown}>
       <TextInput
+        value={targetPortions.portions.toString()}
         style={styles.input}
         autoCapitalize='none'
         autoComplete='off'
@@ -52,7 +53,6 @@ const TargetPortionsSetter = () => {
         maxLength={MAX}
         onChangeText={(text) => handleInputUpdate(text)}
         textAlign='center'
-        value={targetPortions.portions}
       />
       <Text style={styles.portionsText}>annosta</Text>
       <CustomButton onPress={() => toggleVisibility()}>
@@ -92,6 +92,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.secondary,
     borderRadius: theme.roundness.textField,
     border: 'none',
+    fontFamily: 'SourceSerif4-Regular',
+    fontSize: theme.fontSizes.body,
+    fontWeight: 'normal',
     textAlignVertical: 'center'
   }
 });
