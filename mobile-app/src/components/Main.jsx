@@ -44,14 +44,25 @@ const Main = () => {
       <ScrollView
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}>
-        {recipeView ? <Text>Resepti tähän</Text>: <EditView />}
-        <View style={styles.containerViewMode}>
+        {recipeView ? <RecipeView />: <EditView />}
+        <View style={styles.containerViewButton}>
           <TextButton
             text='Katselutila'
             onPress={() => handleToggle()}
             togglable={true}
             toggleOnChild={<Hide />}
             toggleOffChild={<Show />}
+            width='100%'
+          />
+        </View>
+        <View style={styles.containerSaveLoad}>
+          <TextButton
+            text='Tallenna'
+            width='49%'
+          />
+          <TextButton
+            text='Avaa'
+            width='49%'
           />
         </View>
       </ScrollView>
@@ -68,8 +79,16 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     backgroundColor: theme.colors.primary,
   },
-  containerViewMode: {
-    marginBottom: 50
+  containerViewButton: {
+    marginTop: 30,
+    marginBottom: 20,
+    gap: 20
+  },
+  containerSaveLoad: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginBottom: 50,
+    gap: 6
   }
 });
 
