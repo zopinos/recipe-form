@@ -76,6 +76,7 @@ const LoadWindow = () => {
         <Text style={styles.header}>Lataa resepti</Text>
       </View>
       <FlatList
+        style={styles.list}
         data={recipes}
         renderItem={({item}) => <Item title={item} />}
         keyExtractor={item => item}
@@ -88,8 +89,16 @@ const styles = StyleSheet.create({
   container: {
 
   },
+  list: {
+    paddingHorizontal: 50
+  },
   item: {
-
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.colors.secondary,
+    borderRadius: theme.roundness.textField
   },
   containerTopBar: {
     paddingVertical: 15,

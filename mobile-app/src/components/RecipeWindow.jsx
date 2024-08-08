@@ -13,6 +13,8 @@ import { setItem } from '../utils/AsyncStorage.js';
 
 const RecipeWindow = () => {
   const [recipeView, setRecipeView] = useState(false);
+  const [saveDialogVisible, setSaveDialogVisible] = useState(false);
+  const [saveName, setSaveName] = useState('');
 
   const title = useSelector(({ title }) => title);
   const portions = useSelector(({ targetPortions }) => targetPortions);
@@ -21,8 +23,18 @@ const RecipeWindow = () => {
 
   const navigate = useNavigate();
 
+  const handleSaveDialogOpen = () => {
+    setSaveDialogVisible(true);
+  };
+
   const handleSaving = async () => {
-    await setItem('testRecipe', { title, portions, ingredients, textContents });
+    try {
+      await setItem(saveName, { title, portions, ingredients, textContents });
+    } catch (error){
+      console.error('Error saving recipe:', error);
+    } finally {
+      setSaveDialogVisible(false);
+    }
   };
 
   const handleToggle = () => {
@@ -51,7 +63,7 @@ const RecipeWindow = () => {
         <View style={styles.containerSaveLoad}>
           <TextButton
             text='Tallenna'
-            onPress={() => handleSaving()}
+            onPress={() => handleSaveDialogOpen()}
           />
           <TextButton
             text='Avaa'
@@ -59,16 +71,17 @@ const RecipeWindow = () => {
           />
         </View>
       </ScrollView>
-      {/* <View>
-        <Dialog.Container visible={true}>
-          <Dialog.Title>Account delete</Dialog.Title>
+      <View>
+        <Dialog.Container visible={saveDialogVisible}>
+          <Dialog.Title>Tallenna resepti</Dialog.Title>
           <Dialog.Description>
-            Do you want to delete this account? You cannot undo this action.
+            Tallenetaanko resepti?
           </Dialog.Description>
-          <Dialog.Button label="Cancel" />
-          <Dialog.Button label="Delete" />
+          <Dialog.Input placeholder='Reseptin nimi' onChangeText={(text) => setSaveName(text)} />
+          <Dialog.Button label="Peruuta" onPress={() => setSaveDialogVisible(false)}/>
+          <Dialog.Button label="Tallenna" onPress={() => handleSaving()}/>
         </Dialog.Container>
-      </View> */}
+      </View>
     </View>
   );
 };
