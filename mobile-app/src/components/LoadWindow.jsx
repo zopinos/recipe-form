@@ -9,10 +9,11 @@ import { setTitle } from '../reducers/titleReducer.js';
 import { setTargetPortionsAmount } from '../reducers/targetPortionsReducer.js';
 import { setIngredientLists } from '../reducers/ingredientReducer.js';
 import { setTextContent } from '../reducers/textContentReducer.js';
-import { getAllKeys, getItem } from '../utils/AsyncStorage.js';
+import { getAllKeys, getItem, removeItem } from '../utils/AsyncStorage.js';
 import { useEffect, useState } from 'react';
+import TextButton from './Buttons/TextButton.jsx';
 
-const Item = ({ title }) => {
+const Item = ({ title, handleDelete }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -24,7 +25,7 @@ const Item = ({ title }) => {
     dispatch(setTextContent(textContents));
   };
   
-  const handlePress = async () => {
+  const handleOpen = async () => {
     try {
       const fetchedRecipe = await getItem(title);
       handleStateImport(fetchedRecipe);
@@ -36,9 +37,15 @@ const Item = ({ title }) => {
   };
 
   return (
-    <Pressable onPress={() => handlePress()} style={styles.item} >
-      <Text style={styles.itemTitle}>{title}</Text>
-    </Pressable>
+    <View style={styles.item}>
+      <Pressable onPress={() => handleOpen()} >
+        <Text style={styles.itemTitle}>{title}</Text>
+      </Pressable>
+      <TextButton
+        text='Poista'
+        onPress={() => handleDelete()}
+      />
+    </View>
   );
 };
 
@@ -67,6 +74,16 @@ const LoadWindow = () => {
     return <Text>Loading...</Text>;
   }
 
+  const handleRecipeDelete = async (key) => {
+    try {
+      await removeItem(key);
+    } catch (error) {
+      console.error('Error deleting recipe:', error);
+    } finally {
+      setRecipes(recipes.filter(recipe => recipe !== key));
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.containerTopBar}>
@@ -78,7 +95,7 @@ const LoadWindow = () => {
       <FlatList
         style={styles.list}
         data={recipes}
-        renderItem={({item}) => <Item title={item} />}
+        renderItem={({item}) => <Item title={item} handleDelete={() => handleRecipeDelete(item)}/>}
         keyExtractor={item => item}
       />
     </View>
@@ -87,18 +104,26 @@ const LoadWindow = () => {
 
 const styles = StyleSheet.create({
   container: {
-
+    flex: 1
   },
   list: {
-    paddingHorizontal: 50
+    flex: 1,
+    paddingHorizontal: 30,
   },
   item: {
     flex: 1,
     padding: 20,
+    marginTop: 10,
+    marginBottom: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 5,
     backgroundColor: theme.colors.secondary,
     borderRadius: theme.roundness.textField
+  },
+  itemTitle: {
+    fontFamily: theme.fonts.mainBold,
+    fontSize: theme.fontSizes.windowHeading
   },
   containerTopBar: {
     paddingVertical: 15,
@@ -112,7 +137,7 @@ const styles = StyleSheet.create({
     fontFamily: theme.fonts.main,
     fontSize: theme.fontSizes.windowHeading,
     color: 'white'
-  }
+  },
 });
 
 export default LoadWindow;
