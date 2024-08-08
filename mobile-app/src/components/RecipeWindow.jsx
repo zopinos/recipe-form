@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { StyleSheet, ScrollView, View } from 'react-native';
 import { useNavigate } from 'react-router-native';
 import Dialog from 'react-native-dialog';
@@ -8,11 +9,21 @@ import RecipeView from './RecipeView.jsx';
 
 import TextButton from './Buttons/TextButton.jsx';
 import { Hide, Show } from './Buttons/ButtonGraphics.jsx';
+import { setItem } from '../utils/AsyncStorage.js';
 
 const RecipeWindow = () => {
   const [recipeView, setRecipeView] = useState(false);
 
+  const title = useSelector(({ title }) => title);
+  const portions = useSelector(({ targetPortions }) => targetPortions);
+  const ingredients = useSelector(({ ingredientLists }) => ingredientLists);
+  const textContents = useSelector(({ textContents }) => textContents);
+
   const navigate = useNavigate();
+
+  const handleSaving = async () => {
+    await setItem('testRecipe', { title, portions, ingredients, textContents });
+  };
 
   const handleToggle = () => {
     setRecipeView(!recipeView);
@@ -40,6 +51,7 @@ const RecipeWindow = () => {
         <View style={styles.containerSaveLoad}>
           <TextButton
             text='Tallenna'
+            onPress={() => handleSaving()}
           />
           <TextButton
             text='Avaa'
