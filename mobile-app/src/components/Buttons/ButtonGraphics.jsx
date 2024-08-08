@@ -47,3 +47,12 @@ export const Hide = () =>
       <Path d="M65.5 28a2.3 2.3 0 0 0-1.5 1L34 70.5a2.3 2.3 0 0 0 .5 3.1 2.3 2.3 0 0 0 3.1-.5l30.2-41.6a2.3 2.3 0 0 0-.6-3.2 2.3 2.3 0 0 0-1.6-.4z" transform="translate(-19 -33.8)"/>
     </G>
   </Svg>;
+
+export const Back = () =>
+  <Svg width={theme.buttonSizes.extraSmall} height={theme.buttonSizes.extraSmall} viewBox="-.2 -16 67.4 67.4" stroke='white' fill='white'>
+    <G style="display:inline">
+      <Path d="M46.3 26a4.2 4.2 0 0 0-2.9 1.4c-5 5.5-14.3 13.6-22 20.8a4.2 4.2 0 0 0-.3 6 4.2 4.2 0 0 0 6 .1c7.6-7 16.8-15 22.5-21.2a4.2 4.2 0 0 0-.2-6 4.2 4.2 0 0 0-3-1z" transform="translate(-19 -33.8)"/>
+      <Path d="M24.4 47.5a4.2 4.2 0 0 0-3 1 4.2 4.2 0 0 0-.3 6c6.9 7.6 13.8 16 21.4 22.4a4.2 4.2 0 0 0 5.9-.4 4.2 4.2 0 0 0-.5-6C41.2 64.8 34.3 56.7 27.3 49a4.2 4.2 0 0 0-2.9-1.4z" transform="translate(-19 -33.8)"/>
+      <Path d="M58.9 47.3c-8.6 0-18.5.2-29.4.6a4.2 4.2 0 0 0-4 4.4 4.2 4.2 0 0 0 4.3 4c21.7-.8 39-.9 50.5 0a4.2 4.2 0 0 0 4.5-4 4.2 4.2 0 0 0-3.9-4.5c-6-.4-13.4-.6-22-.5Z" transform="translate(-19 -33.8)"/>
+    </G>
+  </Svg>;

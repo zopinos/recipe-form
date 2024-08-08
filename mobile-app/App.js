@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { NativeRouter } from 'react-router-native';
 
 import Main from './src/components/Main';
 
@@ -20,7 +21,9 @@ const store = configureStore({
 const App = () => {
   return (
     <Provider store={store}>
-      <Main />
+      <NativeRouter>
+        <Main />
+      </NativeRouter>
     </Provider>
   );
 };

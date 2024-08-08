@@ -2,7 +2,8 @@ import { Pressable, StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 const CustomButton = (props) => {
-  const buttonStyles = ({pressed}) => [styles.button, pressed ? styles.pressed : styles.notPressed];
+  const noPressStyling = props.noPressStyling ? false : true;
+  const buttonStyles = ({pressed}) => [styles.button, noPressStyling && (pressed ? styles.pressed : styles.notPressed)];
 
   return (
     <Pressable style={buttonStyles} onPress={props.onPress}>

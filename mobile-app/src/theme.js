@@ -14,9 +14,10 @@ const theme = {
     body: 16,
     heading: 36,
     subheading: 18,
+    windowHeading: 20,
   },
   fonts: {
-    main: 'System',
+    main: 'SourceSerif4-Regular',
   },
   fontWeights: {
     normal: '400',
