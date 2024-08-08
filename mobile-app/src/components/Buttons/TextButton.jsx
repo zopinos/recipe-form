@@ -2,12 +2,11 @@ import { Pressable, Text, StyleSheet } from 'react-native';
 import theme from '../../theme';
 import { useState } from 'react';
 
-const TextButton = ({ onPress, text, width = '50%', togglable = false, toggleOnChild = null, toggleOffChild = null }) => {
+const TextButton = ({ onPress, text, togglable = false, toggleOnChild = null, toggleOffChild = null }) => {
   const [toggled, setToggled] = useState(false);
 
   const buttonStyles = ({pressed}) => [
     styles.button,
-    {width},
     toggled ? (pressed ? styles.pressed : styles.toggleOn) : (pressed ? styles.pressed : styles.notPressed)
   ];
 
@@ -31,6 +30,7 @@ const TextButton = ({ onPress, text, width = '50%', togglable = false, toggleOnC
 const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
+    flex: 1,
     gap: 10,
     alignItems: 'center',
     justifyContent: 'center',
