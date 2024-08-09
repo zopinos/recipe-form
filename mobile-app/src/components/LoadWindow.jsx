@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, View, Text } from 'react-native';
+import { FlatList, StyleSheet, View, Text, ActivityIndicator } from 'react-native';
 import { useNavigate } from 'react-router-native';
 import { useDispatch } from 'react-redux';
 import Dialog from 'react-native-dialog';
@@ -75,7 +75,11 @@ const LoadWindow = () => {
   }, []);
 
   if (loading) {
-    return <Text>Loading...</Text>;
+    return (
+      <View style={styles.loadingContainer} >
+        <ActivityIndicator size='large' />
+      </View>
+    );
   }
 
   const handleRecipeDelete = async (key) => {
@@ -130,6 +134,12 @@ const LoadWindow = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
   },
   list: {
     flex: 1,
