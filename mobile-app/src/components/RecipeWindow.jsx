@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { StyleSheet, ScrollView, View } from 'react-native';
 import { useNavigate } from 'react-router-native';
@@ -15,6 +15,8 @@ const RecipeWindow = () => {
   const [recipeView, setRecipeView] = useState(false);
   const [saveDialogVisible, setSaveDialogVisible] = useState(false);
   const [saveName, setSaveName] = useState('');
+
+  const nameInputRef = useRef(null);
 
   const title = useSelector(({ title }) => title);
   const portions = useSelector(({ targetPortions }) => targetPortions);
@@ -33,6 +35,9 @@ const RecipeWindow = () => {
     } catch (error){
       console.error('Error saving recipe:', error);
     } finally {
+      if (nameInputRef && nameInputRef.current) {
+        nameInputRef.current.blur();
+      }
       setSaveDialogVisible(false);
     }
   };
@@ -77,7 +82,7 @@ const RecipeWindow = () => {
           <Dialog.Description>
             Tallenetaanko resepti?
           </Dialog.Description>
-          <Dialog.Input placeholder='Reseptin nimi' onChangeText={(text) => setSaveName(text)} />
+          <Dialog.Input placeholder='Reseptin nimi' onChangeText={(text) => setSaveName(text)} textInputRef={nameInputRef} />
           <Dialog.Button label="Peruuta" onPress={() => setSaveDialogVisible(false)}/>
           <Dialog.Button label="Tallenna" onPress={() => handleSaving()}/>
         </Dialog.Container>
