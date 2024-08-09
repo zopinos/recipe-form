@@ -1,6 +1,6 @@
-import { FlatList, StyleSheet, View, Text, Pressable } from 'react-native';
+import { FlatList, StyleSheet, View, Text } from 'react-native';
 import CustomButton from './Buttons/CustomButton';
-import { Back } from './Buttons/ButtonGraphics';
+import { Back, Edit, Trashcan } from './Buttons/ButtonGraphics';
 import { useNavigate } from 'react-router-native';
 import { useDispatch } from 'react-redux';
 import theme from '../theme';
@@ -11,7 +11,6 @@ import { setIngredientLists } from '../reducers/ingredientReducer.js';
 import { setTextContent } from '../reducers/textContentReducer.js';
 import { getAllKeys, getItem, removeItem } from '../utils/AsyncStorage.js';
 import { useEffect, useState } from 'react';
-import TextButton from './Buttons/TextButton.jsx';
 
 const Item = ({ title, handleDelete }) => {
   const navigate = useNavigate();
@@ -38,13 +37,15 @@ const Item = ({ title, handleDelete }) => {
 
   return (
     <View style={styles.item}>
-      <Pressable onPress={() => handleOpen()} >
-        <Text style={styles.itemTitle}>{title}</Text>
-      </Pressable>
-      <TextButton
-        text='Poista'
-        onPress={() => handleDelete()}
-      />
+      <Text style={styles.itemTitle}>{title}</Text>
+      <View style={styles.itemButtonContainer}>
+        <CustomButton onPress={() => handleOpen()}>
+          <Edit />
+        </CustomButton>
+        <CustomButton onPress={() => handleDelete()}>
+          <Trashcan />
+        </CustomButton>
+      </View>
     </View>
   );
 };
@@ -90,7 +91,7 @@ const LoadWindow = () => {
         <CustomButton noPressStyling onPress={() => navigate('/')}>
           <Back />
         </CustomButton>
-        <Text style={styles.header}>Lataa resepti</Text>
+        <Text style={styles.header}>Avaa resepti</Text>
       </View>
       <FlatList
         style={styles.list}
@@ -123,7 +124,12 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     fontFamily: theme.fonts.mainBold,
-    fontSize: theme.fontSizes.windowHeading
+    fontSize: theme.fontSizes.heading
+  },
+  itemButtonContainer: {
+    flexDirection: 'row',
+    gap: 60,
+    marginTop: 5
   },
   containerTopBar: {
     paddingVertical: 15,

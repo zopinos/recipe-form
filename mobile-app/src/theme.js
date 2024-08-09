@@ -36,6 +36,7 @@ const theme = {
     extraSmall: 24,
     small: 30,
     normal: 40,
+    bigger: 50,
     big: 60
   }
 };
