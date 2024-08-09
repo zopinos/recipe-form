@@ -29,7 +29,7 @@ const RecipeWindow = () => {
     setSaveDialogVisible(true);
   };
 
-  const handleSaving = async () => {
+  const handleRecipeSaving = async () => {
     try {
       await setItem(saveName, { title, portions, ingredients, textContents });
     } catch (error){
@@ -84,7 +84,7 @@ const RecipeWindow = () => {
           </Dialog.Description>
           <Dialog.Input placeholder='Reseptin nimi' onChangeText={(text) => setSaveName(text)} textInputRef={nameInputRef} />
           <Dialog.Button label="Peruuta" onPress={() => setSaveDialogVisible(false)}/>
-          <Dialog.Button label="Tallenna" onPress={() => handleSaving()}/>
+          <Dialog.Button label="Tallenna" onPress={() => handleRecipeSaving()}/>
         </Dialog.Container>
       </View>
     </View>

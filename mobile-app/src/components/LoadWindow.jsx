@@ -1,8 +1,8 @@
+import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
-import CustomButton from './Buttons/CustomButton';
-import { Back, Edit, Trashcan } from './Buttons/ButtonGraphics';
 import { useNavigate } from 'react-router-native';
 import { useDispatch } from 'react-redux';
+import Dialog from 'react-native-dialog';
 import theme from '../theme';
 
 import { setTitle } from '../reducers/titleReducer.js';
@@ -10,7 +10,8 @@ import { setTargetPortionsAmount } from '../reducers/targetPortionsReducer.js';
 import { setIngredientLists } from '../reducers/ingredientReducer.js';
 import { setTextContent } from '../reducers/textContentReducer.js';
 import { getAllKeys, getItem, removeItem } from '../utils/AsyncStorage.js';
-import { useEffect, useState } from 'react';
+import CustomButton from './Buttons/CustomButton';
+import { Back, Edit, Trashcan } from './Buttons/ButtonGraphics';
 
 const Item = ({ title, handleDelete }) => {
   const navigate = useNavigate();
@@ -53,6 +54,8 @@ const Item = ({ title, handleDelete }) => {
 const LoadWindow = () => {
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
+  const [deleteDialogVisible, setDeleteDialogVisible] = useState(false);
+  const [deleteCandidate, setDeleteCandidate] = useState(null);
 
   const navigate = useNavigate();
 
@@ -82,6 +85,8 @@ const LoadWindow = () => {
       console.error('Error deleting recipe:', error);
     } finally {
       setRecipes(recipes.filter(recipe => recipe !== key));
+      setDeleteCandidate(null);
+      setDeleteDialogVisible(false);
     }
   };
 
@@ -96,9 +101,28 @@ const LoadWindow = () => {
       <FlatList
         style={styles.list}
         data={recipes}
-        renderItem={({item}) => <Item title={item} handleDelete={() => handleRecipeDelete(item)}/>}
+        renderItem={({item}) =>
+          <Item
+            title={item}
+            handleDelete={() => {
+              setDeleteDialogVisible(true);
+              setDeleteCandidate(item);
+            }}
+          />
+        }
         keyExtractor={item => item}
       />
+      <Dialog.Container visible={deleteDialogVisible}>
+        <Dialog.Title>Poista resepti</Dialog.Title>
+        <Dialog.Description>
+          Poistetaanko resepti?
+        </Dialog.Description>
+        <Dialog.Button label="Peruuta" onPress={() => {
+          setDeleteCandidate(null);
+          setDeleteDialogVisible(false);
+        }}/>
+        <Dialog.Button label="Poista" onPress={() => handleRecipeDelete(deleteCandidate)}/>
+      </Dialog.Container>
     </View>
   );
 };
@@ -120,7 +144,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 5,
     backgroundColor: theme.colors.secondary,
-    borderRadius: theme.roundness.textField
+    borderRadius: theme.roundness.textField,
+    borderColor: theme.colors.tertiary,
+    borderStyle: 'solid',
+    borderWidth: 3,
   },
   itemTitle: {
     fontFamily: theme.fonts.mainBold,

@@ -15,7 +15,7 @@ const Ingredient = ({ ingredient, listID, handleDelete, handleUpdate }) => {
   return (
     <View style={styles.ingredientRow}>
       <IngredientAmountInput replacedValue={ingredient.amount} placeholder={'määrä'} onChange={handleAmountChange} />
-      <IngredientNameInput replacedValue={ingredient.name} placeholder={'nimi'} onChange={handleNameChange} />
+      <IngredientNameInput replacedValue={ingredient.name} placeholder={'ainesosa'} onChange={handleNameChange} />
       <View style={styles.buttonRemove}>
         <CustomButton onPress={handleDelete}>
           <RemoveIngredient />

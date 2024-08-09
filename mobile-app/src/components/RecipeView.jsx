@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import IngredientsTable from './RecipeView/IngredientsTable';
+import theme from '../theme';
 
 const RecipeView = () => {
   const title = useSelector(({ title }) => title);
@@ -27,19 +28,27 @@ const RecipeView = () => {
 
 const styles = StyleSheet.create({
   recipeView: {
-    
+    marginBottom: 50,
   },
   h1: {
-
+    marginTop: 70,
+    fontFamily: theme.fonts.mainBold,
+    fontSize: theme.fontSizes.heading
   },
   h2: {
-
+    marginTop: 40,
+    marginBottom: 15,
+    fontFamily: theme.fonts.mainBold,
+    fontSize: theme.fontSizes.subheading
   },
   p: {
-
+    fontFamily: theme.fonts.main,
+    fontSize: theme.fontSizes.body,
   },
   portions: {
-
+    marginTop: 35,
+    fontFamily: theme.fonts.main,
+    fontSize: theme.fontSizes.body,
   }
 });
 

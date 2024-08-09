@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import theme from '../../theme';
 
 
 const IngredientsTable = ({ ingredientLists }) => {
@@ -21,16 +22,24 @@ const IngredientsTable = ({ ingredientLists }) => {
 
 const styles = StyleSheet.create({
   h2: {
-
+    marginTop: 40,
+    marginBottom: 15,
+    fontFamily: theme.fonts.mainBold,
+    fontSize: theme.fontSizes.subheading
   },
   ingredient: {
-
+    flexDirection: 'row',
+    gap: 8
   },
   amount: {
-
+    fontFamily: theme.fonts.main,
+    fontSize: theme.fontSizes.body,
+    flex: 1
   },
   name: {
-
+    fontFamily: theme.fonts.main,
+    fontSize: theme.fontSizes.body,
+    flex: 6
   }
 });
 
