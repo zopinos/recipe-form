@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { StyleSheet, ScrollView, View } from 'react-native';
 import { useNavigate } from 'react-router-native';
 import Dialog from 'react-native-dialog';
+import { useKeepAwake } from 'expo-keep-awake';
 
 import EditView from './EditView.jsx';
 import RecipeView from './RecipeView.jsx';
@@ -24,6 +25,8 @@ const RecipeWindow = () => {
   const textContents = useSelector(({ textContents }) => textContents);
 
   const navigate = useNavigate();
+
+  useKeepAwake();
 
   const handleSaveDialogOpen = () => {
     setSaveDialogVisible(true);
