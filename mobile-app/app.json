@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "mobile-app",
+    "name": "reseptiforms",
     "slug": "mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon1.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash3.png",
@@ -26,6 +26,11 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3f02d546-b483-45e7-9f30-3e718d8dd77c"
+      }
+    }
   }
 }

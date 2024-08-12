@@ -37,3 +37,6 @@ yarn-error.*
 # native directories
 android/
 ios/
+
+# eas
+eas.json
