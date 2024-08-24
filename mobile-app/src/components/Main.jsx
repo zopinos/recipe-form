@@ -16,8 +16,6 @@ const Main = () => {
     'SourceSerif4-Regular': require('../../assets/fonts/SourceSerif4-Regular.ttf'),
     'SourceSerif4-Bold': require('../../assets/fonts/SourceSerif4-Bold.ttf'),
     'SourceSerif4-SemiBold': require('../../assets/fonts/SourceSerif4-SemiBold.ttf'),
-    /* 'OpenSans-Regular': require('../../assets/fonts/OpenSans-Regular.ttf'),
-    'OpenSans-SemiBold': require('../../assets/fonts/OpenSans-SemiBold.ttf'), */
     'OpenSans-Bold': require('../../assets/fonts/OpenSans-Bold.ttf'),
   });
 

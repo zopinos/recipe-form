@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { StyleSheet } from 'react-native';
 
 import AutoResizeTextInput from './AutoResizeTextInput';
 
 import { setTitle } from '../../reducers/titleReducer';
 
-import theme from '../../theme';
 
 const TitleInput = () => {
   const title = useSelector(({ title }) => title);
@@ -18,31 +16,12 @@ const TitleInput = () => {
 
   return (
     <AutoResizeTextInput
-      style={styles.titleInput}
+      heading={true}
       placeholder={'Otsikko'}
       replacedValue={title}
       onChange={handleTitleChange}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  titleInput: {
-    width: '100%',
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    marginTop: 90,
-
-    fontFamily: 'SourceSerif4-Bold',
-    fontSize: theme.fontSizes.heading,
-    fontWeight: 'normal',
-    fontStyle: 'normal',
-    textAlignVertical: 'center',
-
-    backgroundColor: theme.colors.secondary,
-    borderRadius: theme.roundness.textField,
-    border: 'none',
-  }
-});
 
 export default TitleInput;

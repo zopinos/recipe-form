@@ -24,7 +24,12 @@ const theme = {
   },
   fontWeights: {
     normal: '400',
+    semiBold: 'semibold',
     bold: '700',
+  },
+  fontStyles: {
+    normal: 'normal',
+    emphasize: 'italic'
   },
   roundness: {
     textField: 15,

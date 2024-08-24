@@ -1,5 +1,4 @@
 import AutoResizeTextInput from '../TextInputs/AutoResizeTextInput';
-import SubheaderInput from '../TextInputs/SubheaderInput';
 import ItemRemoveButton from '../Buttons/ItemRemoveButton';
 import { View, StyleSheet } from 'react-native';
 
@@ -15,7 +14,12 @@ const TextContent = ({textContent, handleDelete, handleUpdate }) => {
   return (
     <View style={styles.textContent}>
       <ItemRemoveButton handleDelete={handleDelete} />
-      <SubheaderInput replacedValue={textContent.title} placeholder={'Ohje'} onChange={handleTitleChange} />
+      <AutoResizeTextInput
+        subheading
+        placeholder={'Ohje'}
+        replacedValue={textContent.title}
+        onChange={handleTitleChange}
+      />
       <AutoResizeTextInput replacedValue={textContent.text} placeholder={'Ohjeen teksti'} onChange={handleTextChange} />
     </View>
   );

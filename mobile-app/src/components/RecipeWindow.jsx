@@ -56,6 +56,7 @@ const RecipeWindow = () => {
   return (
     <View style={styles.container}>
       <ScrollView
+        contentContainerStyle={{ paddingTop: 80}}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}>
         {recipeView ? <RecipeView />: <EditView />}

@@ -1,5 +1,5 @@
 import Ingredient from './Ingredient';
-import SubheaderInput from '../TextInputs/SubheaderInput';
+import AutoResizeTextInput from '../TextInputs/AutoResizeTextInput';
 import ItemRemoveButton from '../Buttons/ItemRemoveButton';
 import { StyleSheet, View } from 'react-native';
 import { AddIngredient } from '../Buttons/ButtonGraphics';
@@ -22,7 +22,12 @@ const IngredientList = ({
   return (
     <View style={styles.ingredientsList}>
       <ItemRemoveButton handleDelete={handleDelete} />
-      <SubheaderInput replacedValue={ingredientList.title} placeholder={'Ainesosat'} onChange={handleTitleChange} />
+      <AutoResizeTextInput
+        subheading
+        placeholder={'Ainesosat'}
+        replacedValue={ingredientList.title}
+        onChange={handleTitleChange}
+      />
       <View>
         {ingredients.map(ingredient => 
           <Ingredient
