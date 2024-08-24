@@ -31,13 +31,13 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   h1: {
-    fontFamily: theme.fonts.mainBold,
+    fontFamily: theme.fonts.mainSemiBold,
     fontSize: theme.fontSizes.heading
   },
   h2: {
     marginTop: 40,
     marginBottom: 15,
-    fontFamily: theme.fonts.mainBold,
+    fontFamily: theme.fonts.mainSemiBold,
     fontSize: theme.fontSizes.subheading
   },
   p: {
