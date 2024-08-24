@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SourceSerif4-Regular',
     fontSize: theme.fontSizes.body,
     fontWeight: 'normal',
+    fontStyle: 'normal',
     textAlignVertical: 'center',
 
     backgroundColor: theme.colors.secondary,

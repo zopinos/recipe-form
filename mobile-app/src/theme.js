@@ -18,7 +18,9 @@ const theme = {
   },
   fonts: {
     main: 'SourceSerif4-Regular',
-    mainBold: 'SourceSerif4-Bold'
+    mainBold: 'SourceSerif4-Bold',
+    mainSemiBold: 'SourceSerif4-SemiBold',
+    secondary: 'OpenSans-Bold',
   },
   fontWeights: {
     normal: '400',

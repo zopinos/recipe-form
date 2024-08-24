@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SourceSerif4-Regular',
     fontSize: theme.fontSizes.subheading,
     fontWeight: 'normal',
+    fontStyle: 'normal',
     textAlignVertical: 'center',
     textDecorationLine: 'underline',
 

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import TextContent from './TextContent';
 import { createTextContent, removeTextContent, updateTextContent } from '../../reducers/textContentReducer';
-import { View, Pressable } from 'react-native';
+import { View } from 'react-native';
 import { AddText } from '../Buttons/ButtonGraphics';
 import CustomButton from '../Buttons/CustomButton';
 
