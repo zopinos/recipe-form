@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   h1: {
-    marginTop: 70,
     fontFamily: theme.fonts.mainBold,
     fontSize: theme.fontSizes.heading
   },
