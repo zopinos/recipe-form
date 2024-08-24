@@ -4,7 +4,6 @@ import { TextInput, StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 const AutoResizeTextInput = ({
-  placeholder,
   replacedValue,
   onChange,
   autoCapitalize,
@@ -36,7 +35,6 @@ const AutoResizeTextInput = ({
       cursorColor='black'
       onChangeText={(text) => handleChange(text)}
       value={value}
-      placeholder={placeholder}
       style={[
         styles.inputField,
         heading

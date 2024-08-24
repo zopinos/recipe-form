@@ -16,11 +16,10 @@ const TextContent = ({textContent, handleDelete, handleUpdate }) => {
       <ItemRemoveButton handleDelete={handleDelete} />
       <AutoResizeTextInput
         subheading
-        placeholder={'Ohje'}
         replacedValue={textContent.title}
         onChange={handleTitleChange}
       />
-      <AutoResizeTextInput replacedValue={textContent.text} placeholder={'Ohjeen teksti'} onChange={handleTextChange} />
+      <AutoResizeTextInput replacedValue={textContent.text} onChange={handleTextChange} />
     </View>
   );
 };
