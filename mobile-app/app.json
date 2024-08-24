@@ -24,7 +24,8 @@
         "resizeMode": "cover",
         "backgroundColor": "#0c0900"
       },
-      "package": "com.zopinos.reseptiforms"
+      "package": "com.zopinos.reseptiforms",
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "favicon": "./assets/favicon.png"
