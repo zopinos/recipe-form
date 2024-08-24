@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSizes.subheading
   },
   ingredient: {
+    marginVertical: 3,
     flexDirection: 'row',
     gap: 8
   },

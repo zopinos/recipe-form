@@ -97,13 +97,14 @@ const LoadWindow = () => {
   return (
     <View style={styles.container}>
       <View style={styles.containerTopBar}>
-        <CustomButton noPressStyling onPress={() => navigate('/')}>
+        <CustomButton noPressStyling onPress={() => navigate('/')} hitSlop={15}>
           <Back />
         </CustomButton>
         <Text style={styles.header}>Avaa resepti</Text>
       </View>
       <FlatList
         style={styles.list}
+        contentContainerStyle={styles.listContainer}
         data={recipes}
         renderItem={({item}) =>
           <Item
@@ -133,7 +134,7 @@ const LoadWindow = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   loadingContainer: {
     flex: 1,
@@ -145,11 +146,14 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 30,
   },
+  listContainer: {
+    paddingTop: 15,
+    paddingBottom: 50
+  },
   item: {
     flex: 1,
     padding: 20,
-    marginTop: 10,
-    marginBottom: 10,
+    marginVertical: 10,
     alignItems: 'center',
     justifyContent: 'center',
     gap: 5,
@@ -169,14 +173,15 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   containerTopBar: {
-    paddingVertical: 15,
-    paddingHorizontal: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 28,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 20,
     backgroundColor: theme.colors.tertiary
   },
   header: {
+    marginLeft: 5,
     fontFamily: theme.fonts.main,
     fontSize: theme.fontSizes.windowHeading,
     color: 'white'

@@ -6,7 +6,11 @@ const CustomButton = (props) => {
   const buttonStyles = ({pressed}) => [styles.button, noPressStyling && (pressed ? styles.pressed : styles.notPressed)];
 
   return (
-    <Pressable style={buttonStyles} onPress={props.onPress}>
+    <Pressable
+      style={buttonStyles}
+      onPress={props.onPress}
+      hitSlop={props.hitSlop ? props.hitSlop : 5}
+      pressRetentionOffset={props.pressRetentionOffset ? props.pressRetentionOffset : 4}>
       {props.children}
     </Pressable>
   );

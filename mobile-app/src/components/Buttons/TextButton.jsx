@@ -18,7 +18,7 @@ const TextButton = ({ onPress, text, togglable = false, toggleOnChild = null, to
   };
 
   return (
-    <Pressable style={buttonStyles} onPress={() => handlePress()}>
+    <Pressable style={buttonStyles} onPress={() => handlePress()} hitSlop={5} pressRetentionOffset={4}>
       {toggled ? toggleOnChild : toggleOffChild}
       <Text style={styles.text}>
         {text}

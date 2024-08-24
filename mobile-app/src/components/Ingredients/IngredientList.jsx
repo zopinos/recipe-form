@@ -53,7 +53,10 @@ const styles = StyleSheet.create({
 
   },
   buttonAddIngredient: {
-    marginTop: 10
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginTop: 10,
+    marginLeft: 5
   }
 });
 

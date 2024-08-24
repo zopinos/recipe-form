@@ -11,10 +11,10 @@ const theme = {
     buttonText: 'white'
   },
   fontSizes: {
-    body: 16,
+    body: 18,
     heading: 36,
-    subheading: 18,
-    windowHeading: 20,
+    subheading: 20,
+    windowHeading: 24,
   },
   fonts: {
     main: 'SourceSerif4-Regular',
