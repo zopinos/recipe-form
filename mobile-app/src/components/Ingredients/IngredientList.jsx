@@ -24,6 +24,7 @@ const IngredientList = ({
       <ItemRemoveButton handleDelete={handleDelete} />
       <AutoResizeTextInput
         subheading
+        placeholder={'Ainesosat'}
         replacedValue={ingredientList.title}
         onChange={handleTitleChange}
       />

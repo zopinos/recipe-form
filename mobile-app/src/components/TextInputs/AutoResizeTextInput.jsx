@@ -4,6 +4,7 @@ import { TextInput, StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 const AutoResizeTextInput = ({
+  placeholder,
   replacedValue,
   onChange,
   autoCapitalize,
@@ -29,6 +30,12 @@ const AutoResizeTextInput = ({
     <TextInput
       editable
       multiline
+      ref={ref => ref && ref.setNativeProps({ style: [
+        heading
+          ? styles.headingFont
+          : (subheading ? styles.subheadingFont : styles.regularFont),
+      ]})}
+      placeholder={placeholder}
       autoCapitalize={autoCapitalize}
       autoComplete='off'
       autoCorrect={false}
@@ -37,9 +44,6 @@ const AutoResizeTextInput = ({
       value={value}
       style={[
         styles.inputField,
-        heading
-          ? styles.headingFont
-          : (subheading ? styles.subheadingFont : styles.regularFont),
         ingredientAmountInput
           ? styles.ingredientAmountInput
           : (
@@ -75,7 +79,6 @@ const styles = StyleSheet.create({
   },
   subheadingInput: {
     width: '60%',
-    textDecorationLine: 'underline',
     textAlignVertical: 'center',
   },
   regularFont: {
