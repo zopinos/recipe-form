@@ -1,33 +1,37 @@
-import { useState, useEffect } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
 const AutoResizeTextInput = ({
   placeholder,
-  replacedValue,
-  onChange,
+  value,
+  onChangeText,
   autoCapitalize,
   heading = false,
   subheading = false,
   ingredientAmountInput = false,
   ingredientNameInput = false
 }) => {
-  const [value, setValue] = useState('');
-
-  useEffect(() => {
-    setValue(replacedValue);
-  }, [replacedValue]);
-
-  const handleChange = (text) => {
-    if (onChange) {
-      onChange(text);
-    }
-    setValue(text);
+  const typeStyle = () => {
+    return (
+      ingredientAmountInput
+        ? styles.ingredientAmountInput
+        : (
+          ingredientNameInput
+            ? styles.ingredientNameInput
+            : (
+              subheading
+                ? styles.subheadingInput
+                : styles.textInput
+            )
+        )
+    );
   };
 
   return (
     <TextInput
+      value={value}
+      onChangeText={(text) => onChangeText(text)}
       editable
       multiline
       ref={ref => ref && ref.setNativeProps({ style: [
@@ -40,21 +44,9 @@ const AutoResizeTextInput = ({
       autoComplete='off'
       autoCorrect={false}
       cursorColor='black'
-      onChangeText={(text) => handleChange(text)}
-      value={value}
       style={[
         styles.inputField,
-        ingredientAmountInput
-          ? styles.ingredientAmountInput
-          : (
-            ingredientNameInput
-              ? styles.ingredientNameInput
-              : (
-                subheading
-                  ? styles.subheadingInput
-                  : styles.textInput
-              )
-          ),
+        typeStyle()
       ]}
       maxLength={9999}
     />
@@ -69,7 +61,6 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.secondary,
     borderRadius: theme.roundness.textField,
     border: 'none',
-    includeFontPadding: false,
   },
   textInput: {
     width: '100%',

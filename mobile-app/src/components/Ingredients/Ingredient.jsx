@@ -17,15 +17,15 @@ const Ingredient = ({ ingredient, listID, handleDelete, handleUpdate }) => {
       <AutoResizeTextInput
         ingredientAmountInput
         placeholder={'määrä'}
-        replacedValue={ingredient.amount}
-        onChange={handleAmountChange}
+        value={ingredient.amount}
+        onChangeText={handleAmountChange}
         autoCapitalize={'none'}
       />
       <AutoResizeTextInput
         ingredientNameInput
         placeholder={'ainesosa'}
-        replacedValue={ingredient.name}
-        onChange={handleNameChange}
+        value={ingredient.name}
+        onChangeText={handleNameChange}
         autoCapitalize={'none'}
       />
       <View style={styles.buttonRemove}>

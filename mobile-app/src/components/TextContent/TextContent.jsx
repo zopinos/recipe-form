@@ -17,10 +17,14 @@ const TextContent = ({textContent, handleDelete, handleUpdate }) => {
       <AutoResizeTextInput
         subheading
         placeholder={'Otsikko'}
-        replacedValue={textContent.title}
-        onChange={handleTitleChange}
+        value={textContent.title}
+        onChangeText={handleTitleChange}
       />
-      <AutoResizeTextInput placeholder={'Ohjeen teksti'} replacedValue={textContent.text} onChange={handleTextChange} />
+      <AutoResizeTextInput
+        placeholder={'Ohjeen teksti'}
+        value={textContent.text}
+        onChangeText={handleTextChange}
+      />
     </View>
   );
 };

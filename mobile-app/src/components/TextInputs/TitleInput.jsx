@@ -17,9 +17,9 @@ const TitleInput = () => {
   return (
     <AutoResizeTextInput
       placeholder={'Otsikko'}
-      heading={true}
-      replacedValue={title}
-      onChange={handleTitleChange}
+      heading
+      value={title}
+      onChangeText={handleTitleChange}
     />
   );
 };

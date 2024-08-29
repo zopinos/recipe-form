@@ -25,8 +25,8 @@ const IngredientList = ({
       <AutoResizeTextInput
         subheading
         placeholder={'Ainesosat'}
-        replacedValue={ingredientList.title}
-        onChange={handleTitleChange}
+        value={ingredientList.title}
+        onChangeText={handleTitleChange}
       />
       <View>
         {ingredients.map(ingredient => 
