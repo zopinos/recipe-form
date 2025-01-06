@@ -13,3 +13,19 @@ I mainly made Recipe Form to learn front-end web dev and React Native. The app i
 - Saving the recipe as a JSON file.
 - Loading the recipe from a previously saved JSON file.
 - Viewing the recipe as a plain recipe without the editing UI.
+
+### Initial View
+
+<img alt="image of a empty recipe, how the app is presented initially" src="showcase/empty-recipe.png"/>
+
+### Filled Recipe
+
+<img alt="image of a finished salmon soup recipe, 1st half" src="showcase/lohikeitto-alku.png"/>
+
+### Ready Instructions
+
+<img alt="image of a finished salmon soup recipe, 2nd half" src="showcase/lohikeitto-ohje.png"/>
+
+### Recipe View
+
+<img alt="image of a finished salmon soup recipe, viewed with the recipe view on" src="showcase/lohikeitto-view.png"/>
