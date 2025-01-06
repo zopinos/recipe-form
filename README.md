@@ -14,6 +14,8 @@ I mainly made Recipe Form to learn front-end web dev and React Native. The app i
 - Loading the recipe from a previously saved JSON file.
 - Viewing the recipe as a plain recipe without the editing UI.
 
+## Showcase
+
 ### Initial View
 
 <img alt="image of a empty recipe, how the app is presented initially" src="showcase/empty-recipe.png"/>
