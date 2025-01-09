@@ -4,6 +4,13 @@
 
 I mainly made Recipe Form to learn front-end web dev and React Native. The app is designed to be used as the recipe item is being made, so that it would be easy to write down all ingredients and instructions for the recipe.
 
+The app uses:
+- React
+- JavaScript
+- Redux
+- styled-components
+- React Native (Mobile)
+
 ## Features
 
 - Ingredient lists for adding ingredients and their sizes.
