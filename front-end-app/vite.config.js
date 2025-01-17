@@ -1,4 +1,4 @@
-// Web
+/* // Web
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -11,20 +11,19 @@ export default defineConfig({
     setupFiles: "./testSetup.js",
   },
 });
-/* 
+/*  */
 // Single File
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { viteSingleFile } from 'vite-plugin-singlefile';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { viteSingleFile } from "vite-plugin-singlefile";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: "./",
   plugins: [react(), viteSingleFile()],
   test: {
-    environment: 'jsdom',
+    environment: "jsdom",
     globals: true,
-    setupFiles: './testSetup.js', 
-  }
+    setupFiles: "./testSetup.js",
+  },
 });
- */
