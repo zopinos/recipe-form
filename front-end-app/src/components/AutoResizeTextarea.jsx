@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { useState, useRef, useEffect } from 'react';
+import styled from "styled-components";
+import { useState, useRef, useEffect } from "react";
 
 const Textarea = styled.textarea`
   width: 100%;
@@ -11,7 +11,12 @@ const Textarea = styled.textarea`
   line-height: 1.5;
 `;
 
-const AutoResizeTextarea = ({ className, placeholder, replacedValue, onChange }) => {
+const AutoResizeTextarea = ({
+  className,
+  placeholder,
+  replacedValue,
+  onChange,
+}) => {
   const [text, setText] = useState(replacedValue);
   const textareaRef = useRef(null);
 
@@ -25,8 +30,8 @@ const AutoResizeTextarea = ({ className, placeholder, replacedValue, onChange })
 
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
-    textarea.style.height = 'auto';
-    textarea.style.height = textarea.scrollHeight + 'px';
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
   };
 
   const handleChange = (event) => {
@@ -43,9 +48,7 @@ const AutoResizeTextarea = ({ className, placeholder, replacedValue, onChange })
       onChange={handleChange}
       className={className}
       rows={1}
-
       placeholder={placeholder}
-
       autoComplete="off"
       autoCapitalize="sentences"
       autoCorrect="off"
@@ -67,13 +70,12 @@ export const EditableHeader2 = styled(AutoResizeTextarea)`
   width: 50%;
   margin-top: 5px;
   padding: 8px;
-  text-decoration: underline;
 `;
 
 export const IngredientText = styled(AutoResizeTextarea)`
   margin-top: 1px;
   padding: 8px;
-  
+
   width: 100%;
   text-align: left;
 `;

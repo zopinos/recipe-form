@@ -3,7 +3,7 @@ html {
   padding: 0;
   box-sizing: border-box;
 
-  background-color: #FFF2C5;
+  background-color: #fff2c5;
   font-family: "Source Serif 4", serif;
   font-weight: 400;
   font-style: normal;
@@ -82,7 +82,7 @@ input,
 textarea,
 select {
   font-family: "Source Serif 4", serif;
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.03);
   border-radius: 10px;
   border: none;
 }
@@ -111,7 +111,7 @@ input[type="checkbox"] {
   margin-top: 30px;
 }
 
-.portions-selector>* {
+.portions-selector > * {
   margin-right: 0.5em;
 }
 
@@ -128,7 +128,7 @@ input[type="checkbox"] {
   padding: 5px 0;
 }
 
-.target-portions-setter>* {
+.target-portions-setter > * {
   margin-right: 0.5em;
 }
 
