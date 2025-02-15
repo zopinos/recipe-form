@@ -10,22 +10,16 @@ const AutoResizeTextInput = ({
   heading = false,
   subheading = false,
   ingredientAmountInput = false,
-  ingredientNameInput = false
+  ingredientNameInput = false,
 }) => {
   const typeStyle = () => {
-    return (
-      ingredientAmountInput
-        ? styles.ingredientAmountInput
-        : (
-          ingredientNameInput
-            ? styles.ingredientNameInput
-            : (
-              subheading
-                ? styles.subheadingInput
-                : styles.textInput
-            )
-        )
-    );
+    return ingredientAmountInput
+      ? styles.ingredientAmountInput
+      : ingredientNameInput
+        ? styles.ingredientNameInput
+        : subheading
+          ? styles.subheadingInput
+          : styles.textInput;
   };
 
   return (
@@ -34,20 +28,24 @@ const AutoResizeTextInput = ({
       onChangeText={(text) => onChangeText(text)}
       editable
       multiline
-      ref={ref => ref && ref.setNativeProps({ style: [
-        heading
-          ? styles.headingFont
-          : (subheading ? styles.subheadingFont : styles.regularFont),
-      ]})}
+      ref={(ref) =>
+        ref &&
+        ref.setNativeProps({
+          style: [
+            heading
+              ? styles.headingFont
+              : subheading
+                ? styles.subheadingFont
+                : styles.regularFont,
+          ],
+        })
+      }
       placeholder={placeholder}
       autoCapitalize={autoCapitalize}
-      autoComplete='off'
+      autoComplete="off"
       autoCorrect={false}
-      cursorColor='black'
-      style={[
-        styles.inputField,
-        typeStyle()
-      ]}
+      cursorColor="black"
+      style={[styles.inputField, typeStyle()]}
       maxLength={9999}
     />
   );
@@ -98,7 +96,7 @@ const styles = StyleSheet.create({
 
     textAlignVertical: 'top',
     textAlign: 'right',
-  }
+  },
 });
 
 export default AutoResizeTextInput;
